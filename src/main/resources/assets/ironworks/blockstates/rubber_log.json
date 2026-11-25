@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=y,sap=false": { "model": "ironworks:block/rubber_log" },
+    "axis=y,sap=true": { "model": "ironworks:block/rubber_log_sap" },
+    "axis=x,sap=false": { "model": "ironworks:block/rubber_log", "x": 90, "y": 90 },
+    "axis=x,sap=true": { "model": "ironworks:block/rubber_log_sap", "x": 90, "y": 90 },
+    "axis=z,sap=false": { "model": "ironworks:block/rubber_log", "x": 90 },
+    "axis=z,sap=true": { "model": "ironworks:block/rubber_log_sap", "x": 90 }
+  }
+}

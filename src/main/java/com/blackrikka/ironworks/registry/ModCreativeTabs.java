@@ -16,7 +16,15 @@ public class ModCreativeTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.ironworks"))
                     .icon(() -> ModItems.TEST_BLOCK_ITEM.get().getDefaultInstance())
-                    .displayItems((parameters, output) -> output.accept(ModItems.TEST_BLOCK_ITEM.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ModItems.TEST_BLOCK_ITEM.get());
+                        output.accept(ModItems.RUBBER_LOG_ITEM.get());
+                        output.accept(ModItems.RUBBER_PLANKS_ITEM.get());
+                        output.accept(ModItems.RUBBER_LEAVES_ITEM.get());
+                        output.accept(ModItems.RUBBER_SAPLING_ITEM.get());
+                        output.accept(ModItems.RUBBER_SAP.get());
+                        output.accept(ModItems.RUBBER.get());
+                    })
                     .build()
     );
 }

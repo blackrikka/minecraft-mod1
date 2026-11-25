@@ -12,7 +12,15 @@ SIZE = 16
 
 # (relative output path under project root, RGB color)
 TEXTURES = [
-    ("src/main/resources/assets/ironworks/textures/block/test_block.png", (0xB4, 0xB4, 0xB4)),
+    ("src/main/resources/assets/ironworks/textures/block/test_block.png", (0xb4, 0xb4, 0xb4)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_log_side.png", (0x3b, 0x2a, 0x1e)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_log_side_sap.png", (0xb0, 0x6e, 0x1e)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_log_top.png", (0x6e, 0x52, 0x36)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_planks.png", (0x9c, 0x6b, 0x3e)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_leaves.png", (0x2e, 0x6b, 0x2a)),
+    ("src/main/resources/assets/ironworks/textures/block/rubber_sapling.png", (0x4c, 0x8f, 0x3a)),
+    ("src/main/resources/assets/ironworks/textures/item/rubber_sap.png", (0xd9, 0x9a, 0x2b)),
+    ("src/main/resources/assets/ironworks/textures/item/rubber.png", (0x22, 0x22, 0x22)),
 ]
 
 

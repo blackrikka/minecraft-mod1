@@ -1,4 +1,10 @@
 {
   "block.ironworks.test_block": "테스트 블록",
+  "block.ironworks.rubber_log": "고무 원목",
+  "block.ironworks.rubber_planks": "고무 판자",
+  "block.ironworks.rubber_leaves": "고무 나뭇잎",
+  "block.ironworks.rubber_sapling": "고무 묘목",
+  "item.ironworks.rubber_sap": "고무 수액",
+  "item.ironworks.rubber": "고무",
   "itemGroup.ironworks": "아이언웍스"
 }

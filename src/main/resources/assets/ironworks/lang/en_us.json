@@ -1,4 +1,10 @@
 {
   "block.ironworks.test_block": "Test Block",
+  "block.ironworks.rubber_log": "Rubber Log",
+  "block.ironworks.rubber_planks": "Rubber Planks",
+  "block.ironworks.rubber_leaves": "Rubber Leaves",
+  "block.ironworks.rubber_sapling": "Rubber Sapling",
+  "item.ironworks.rubber_sap": "Rubber Sap",
+  "item.ironworks.rubber": "Rubber",
   "itemGroup.ironworks": "Ironworks"
 }

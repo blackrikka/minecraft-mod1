@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "group": "rubber",
+  "ingredient": {
+    "item": "ironworks:rubber_sap"
+  },
+  "result": {
+    "id": "ironworks:rubber"
+  }
+}
