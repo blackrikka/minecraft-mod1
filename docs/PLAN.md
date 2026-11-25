@@ -139,6 +139,22 @@ tools/gen_textures.py
 - 화면: 검색창(`EditBox`, 입력 후 0.3초 디바운스로 쿼리 전송), 정렬 버튼(이름/수량/ID, 오름·내림 토글), 9×5 결과 격자(아이템 렌더 + 수량 약어 1.2K/3.4M), 페이지 이전/다음, 상태줄(Online/Offline · 총 항목 수 · 랙 수), 쿼리 오류 표시. 결과 칸 클릭: 좌클릭=한 스택, 우클릭=절반, 쉬프트 좌클릭=인벤토리로. 커서에 아이템이 있을 때 결과 영역 클릭=넣기. 플레이어 인벤토리 쉬프트 클릭=넣기(`quickMoveStack`).
 - 오프라인/빈 네트워크에서는 안내 문구만 표시.
 
+### M1f – 전자 부품과 드라이브 연결 (확정)
+- **아이템 5종**: `resistor`(저항), `diode`(다이오드), `transistor`(트랜지스터), `ic_chip_basic`(IC 칩셋 기본), `ic_chip_advanced`(IC 칩셋 고급). 임시 텍스처, lang(en_us/ko_kr), 크리에이티브 탭 추가.
+- **신규 레시피**(모두 `ironworks:circuit_assembly`, 입력 슬롯 4칸 이내, 재료는 각 슬롯에 쌓아서 넣는 기존 규칙):
+  - `resistor` ×2: clay_ball 1 + coal 1 + copper_dust 2 (숯 버전 별도), 120틱, 40 FE/t.
+  - `diode` ×2: silicon_wafer 1 + gold_foil 1 + plastic_sheet 1, 150틱, 40 FE/t.
+  - `transistor` ×2: silicon_wafer 1 + gold_foil 2 + copper_dust 1, 150틱, 40 FE/t.
+  - `ic_chip_basic` ×1: resistor 2 + diode 1 + transistor 1, 200틱, 40 FE/t.
+  - `ic_chip_advanced` ×1: ic_chip_basic 1 + transistor 2 + gold_foil 1 + silicon_wafer 1, 300틱, 50 FE/t.
+- **기존 레시피 변경**(변경 후 파싱·동작 재검증 필수):
+  - `circuit_assembly_advanced_circuit`: basic_circuit 1 + **ic_chip_basic 1**(기존 silicon_wafer 2 대체) + gold_foil 2 + redstone 1, 300틱, 50 FE/t.
+  - `drive_1k` `S P S / B I B / S R S` (S=steel_plate, P=plastic_sheet, B=basic_circuit, I=ic_chip_basic, R=redstone).
+  - `drive_4k` `S X S / W A W / S R S` (X=ic_chip_advanced, W=silicon_wafer, A=advanced_circuit).
+  - `drive_16k` `A X A / S D S / A X A` (A=advanced_circuit, X=ic_chip_advanced, D=minecraft:diamond).
+  - server_rack, db_terminal, storage_port 등 다른 레시피는 변경하지 않는다.
+- **후속(이번에는 만들지 않음)**: 다이오드 케이블(단방향 케이블), 저항 제한기(전송량 제한 블록).
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
