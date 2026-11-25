@@ -98,6 +98,18 @@ tools/gen_textures.py
 - 기계 제작: 합금로 `K K K / B C B / I F I`(K=minecraft:brick, B=bronze_ingot, C=machine_casing, I=iron_ingot, F=minecraft:furnace). 압축기 `I P I / B C B / I R I`(P=minecraft:piston, R=redstone). 회로 조립기 `G R G / S C S / I W I`(G=gold_ingot, S=steel_ingot, W=copper_cable).
 - 4입력 기계의 GUI: 슬롯 겹침이 없도록 좌표를 계산해 배치하고(2x2), 출력 슬롯과 진행 화살표 위치를 보고할 것.
 
+### M2 상세 – 컨베이어 (확정)
+- **`conveyor`** (`ConveyorBlock` + `ConveyorBlockEntity`): `facing`(수평 4방향), 얇은 슬랩 모양(높이 4/16) VoxelShape. BE는 **아이템 1개 버퍼**와 `progress`(0~8틱)를 가진다.
+  - 입력: ItemHandler capability(앞면 제외 모든 면에서 삽입 가능, 추출 불가, 버퍼가 비어 있을 때만 1개 수락). 뒤쪽 블록이 ItemHandler(상자·기계 출력 슬롯 등)를 노출하면 **끌어오기**: 버퍼가 비었을 때 8틱마다 1개 추출(`extractItem`). 위에 떨어진 `ItemEntity`도 흡수.
+  - 이동: 서버 틱에서 `progress`를 올리고 8이 되면 앞 블록으로 전달. 앞이 컨베이어/분배기/필터면 그쪽 버퍼에 삽입, 그 외에는 `Capabilities.ItemHandler.BLOCK`(앞 블록, 반대 면)에 `insertItem`; 앞이 비어 있고 막혀 있지 않으면 아이템 엔티티로 떨어뜨리지 **않는다**(막히면 대기).
+  - 동기화: 아이템 수락/전달 시에만 `sendBlockUpdated`(업데이트 패킷), 클라이언트는 `progress`를 보간. 렌더링은 `BlockEntityRenderer`로 아이템을 선 위에 보간해 그린다(등록: `EntityRenderersEvent.RegisterRenderers`).
+  - 성능: 버퍼가 비고 뒤쪽 소스가 없으면 틱 비용 최소(8틱마다 한 번만 뒤쪽 조회).
+  - NBT 저장: 버퍼 아이템, progress.
+  - 레시피: `R R R / S I S`(R=rubber, S=steel_plate, I=iron_ingot) → 6개.
+- **`splitter`** 분배기: 입력을 받으면 앞/좌/우 3방향에 라운드로빈으로 전달(받는 쪽이 거절하면 다음 방향 시도). 레시피(무형): 컨베이어 3 + iron_plate 1 → 1개.
+- **`sorter`** 필터: 우클릭(아이템 들고)으로 필터 아이템 지정, 맨손 웅크리기 우클릭으로 해제, 액션바에 현재 필터 표시. 필터와 일치(아이템 종류 비교)하면 앞으로, 불일치하면 좌/우로 전달. 레시피: `S P S / P C P / S P S`가 아니라 단순히 무형 컨베이어 1 + hopper 1 + redstone 1 → sorter 1.
+- 공통: 모든 컨베이어류는 곡괭이 mineable, 루트테이블(자기 자신), 크리에이티브 탭, lang(en_us/ko_kr), 임시 텍스처(gen_textures.py), blockstates(facing 4), models.
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
