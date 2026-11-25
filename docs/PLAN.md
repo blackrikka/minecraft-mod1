@@ -67,6 +67,26 @@ tools/gen_textures.py
 - 성능: 버퍼 0이면 틱 스킵, 연결 변경 시에만 이웃 목록 재조회.
 - 완료 기준: 발전기 → 케이블 여러 칸 → 배터리/기계 전송, 케이블 분기, 월드 재접속 후 유지, `runServer` 오류 없음.
 
+### 남은 작업 큐 (순차 진행: 각 단계 구현 → 빌드/서버 검증 → 커밋)
+1. **M1d** 기계 프레임워크 + 분쇄기 + 전기 용광로 + 주석 광석/가루/주괴/청동 + `machine_casing`
+2. **M1e** 합금로(청동·강철), 압축기(판), 플라스틱, 회로 조립기(기초 회로), 실리콘 광석/웨이퍼/고급 회로
+3. **M2** 컨베이어(+분배기, 필터)
+4. **M3a** 드라이브 아이템 + 서버랙 + 네트워크 케이블
+5. **M3b** DB 터미널(검색·정렬·페이지·넣기/꺼내기, 패킷)
+6. **M4** 업적 트리(바닐라→모드 진행 안내), 밸런스, 정리
+
+### M1d – 기계 프레임워크 (확정)
+- **레시피 타입**: `ironworks:crushing`(후속: `alloying`, `compressing`, `circuit_assembly`)을 하나의 레시피 클래스 `MachineRecipe`로 구현(레시피 타입/시리얼라이저만 다르게 등록). JSON: `{"type":"ironworks:crushing","ingredients":[{"ingredient":{"item":"minecraft:iron_ore"},"count":1}],"result":{"id":"ironworks:iron_dust","count":2},"time":100,"energy_per_tick":20}`. 재료 슬롯 수는 1~4. 입력은 `ingredients` 순서와 무관하게 매칭.
+- **`MachineBlockEntity`(추상)**: 입력 슬롯 N개 + 출력 슬롯 1개(`ItemStackHandler`), `ModEnergyStorage`(버퍼 10,000, 수신 128/틱, 외부 추출 불가), `progress`/`maxProgress`. 서버 틱: 레시피 매칭 → 출력 가능 → 전력 충분하면 진행(틱당 `energy_per_tick` 소비), 전력 부족이면 진행 정지(감소 없음), 완료 시 입력 소비·출력 삽입. 캡: ItemHandler(입력 슬롯 삽입만, 출력 슬롯 추출만), EnergyStorage(수신만). `lit` 블록상태.
+- **GUI**: 공용 `MachineMenu`/`MachineScreen`(`GuiGraphics.fill` 기반): 입력 슬롯 개수에 따라 슬롯 배치, 진행 화살표, 에너지 바(툴팁 FE).
+- **기계**: `crusher`(20 FE/t, 100틱), `electric_furnace`(바닐라 `RecipeType.SMELTING` 레시피 사용, 20 FE/t, 100틱 고정).
+- **분쇄 레시피(가루 x2)**: iron_ore, deepslate_iron_ore, copper_ore, deepslate_copper_ore, gold_ore, deepslate_gold_ore, tin_ore, deepslate_tin_ore(+raw_ 광석류도 동일). 석탄→coal_dust 없음. 가루 아이템: iron_dust, copper_dust, gold_dust, tin_dust. 가루→주괴는 바닐라 화로/용광로 레시피(JSON).
+- **주석**: `tin_ore`, `deepslate_tin_ore`, `raw_tin`, `raw_tin_block` 생략(불필요), `tin_ingot`. 월드젠: configured/placed feature + `neoforge:add_features`(Y -16~112, 청크당 약 8회, 크기 8). 곡괭이 mineable + needs_stone_tool, 루트테이블(광석은 raw_tin, 행운 적용, 실크터치 시 자기 자신).
+- **청동**: `bronze_ingot` 작업대 무형 레시피(구리 3 + 주석 1 → 청동 4). 
+- **`machine_casing`**: 작업대 `B I B / I _ I / B I B` (B=bronze_ingot, I=iron_ingot) → 1개.
+- **기계 레시피**: 분쇄기 `F F F / B C B / I R I`(F=flint, B=bronze_ingot, C=machine_casing, I=iron_ingot, R=redstone). 전기 용광로 `I I I / B C B / R F R`(F=minecraft:furnace, R=redstone).
+- 공통: 광물 가공 체인 전체 검증(분쇄→가루→용광로→주괴).
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
