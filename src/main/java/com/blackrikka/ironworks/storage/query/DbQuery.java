@@ -13,7 +13,8 @@ import java.util.regex.Pattern;
  * <p>
  * The text is split on whitespace; all tokens must match (AND). Token forms:
  * <ul>
- *   <li>{@code iron} : partial match on path or namespace, case ignored, {@code _} and space are the same</li>
+ *   <li>{@code iron} : partial match on path only, case ignored, {@code _} and space are the same. Use
+ *       {@code @modid} to filter by namespace</li>
  *   <li>{@code @minecraft} : namespace equals</li>
  *   <li>{@code #minecraft:logs} : tag; without a namespace, {@code minecraft:} and {@code c:} are both tried</li>
  *   <li>{@code >100} {@code >=100} {@code <5} {@code <=5} {@code =64} : count comparison, {@code k} = 1000 and
@@ -114,7 +115,7 @@ public final class DbQuery {
                 if (term.isBlank()) {
                     throw new IllegalArgumentException("empty search word");
                 }
-                return row -> normalize(row.path()).contains(term) || normalize(row.namespace()).contains(term);
+                return row -> normalize(row.path()).contains(term);
             }
         }
     }

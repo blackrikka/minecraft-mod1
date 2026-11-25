@@ -73,6 +73,12 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/item/silicon_wafer.png", (0x4f, 0x6a, 0x8a)),
     ("src/main/resources/assets/ironworks/textures/item/basic_circuit.png", (0x3c, 0x9a, 0x4c)),
     ("src/main/resources/assets/ironworks/textures/item/advanced_circuit.png", (0x9a, 0x4c, 0xc8)),
+    # M1f: electronic components (resistor, diode, transistor, IC chips).
+    ("src/main/resources/assets/ironworks/textures/item/resistor.png", (0xc4, 0x8a, 0x3e)),
+    ("src/main/resources/assets/ironworks/textures/item/diode.png", (0x2a, 0x2a, 0x30)),
+    ("src/main/resources/assets/ironworks/textures/item/transistor.png", (0x6a, 0x7a, 0x8a)),
+    ("src/main/resources/assets/ironworks/textures/item/ic_chip_basic.png", (0x2e, 0x5a, 0x8a)),
+    ("src/main/resources/assets/ironworks/textures/item/ic_chip_advanced.png", (0x6a, 0x2e, 0x8a)),
     # M2: conveyor, splitter and sorter sides (solid placeholders).
     ("src/main/resources/assets/ironworks/textures/block/conveyor_side.png", (0x4a, 0x4f, 0x55)),
     ("src/main/resources/assets/ironworks/textures/block/splitter_top.png", (0x4f, 0x6e, 0x58)),

@@ -3,13 +3,14 @@
   "category": "misc",
   "pattern": [
     "SPS",
-    "PBP",
+    "BIB",
     "SRS"
   ],
   "key": {
     "S": { "item": "ironworks:steel_plate" },
     "P": { "item": "ironworks:plastic_sheet" },
     "B": { "item": "ironworks:basic_circuit" },
+    "I": { "item": "ironworks:ic_chip_basic" },
     "R": { "item": "minecraft:redstone" }
   },
   "result": {

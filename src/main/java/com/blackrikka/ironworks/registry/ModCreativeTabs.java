@@ -54,6 +54,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SILICON_WAFER.get());
                         output.accept(ModItems.BASIC_CIRCUIT.get());
                         output.accept(ModItems.ADVANCED_CIRCUIT.get());
+                        output.accept(ModItems.RESISTOR.get());
+                        output.accept(ModItems.DIODE.get());
+                        output.accept(ModItems.TRANSISTOR.get());
+                        output.accept(ModItems.IC_CHIP_BASIC.get());
+                        output.accept(ModItems.IC_CHIP_ADVANCED.get());
                         output.accept(ModItems.CONVEYOR_ITEM.get());
                         output.accept(ModItems.SPLITTER_ITEM.get());
                         output.accept(ModItems.SORTER_ITEM.get());

@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "SPS",
+    "SXS",
     "WAW",
     "SRS"
   ],
   "key": {
     "S": { "item": "ironworks:steel_plate" },
-    "P": { "item": "ironworks:plastic_sheet" },
+    "X": { "item": "ironworks:ic_chip_advanced" },
     "W": { "item": "ironworks:silicon_wafer" },
     "A": { "item": "ironworks:advanced_circuit" },
     "R": { "item": "minecraft:redstone" }

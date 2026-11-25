@@ -58,6 +58,13 @@ public class ModItems {
     public static final DeferredItem<Item> BASIC_CIRCUIT = ITEMS.registerSimpleItem("basic_circuit");
     public static final DeferredItem<Item> ADVANCED_CIRCUIT = ITEMS.registerSimpleItem("advanced_circuit");
 
+    // M1f: electronic components for drives.
+    public static final DeferredItem<Item> RESISTOR = ITEMS.registerSimpleItem("resistor");
+    public static final DeferredItem<Item> DIODE = ITEMS.registerSimpleItem("diode");
+    public static final DeferredItem<Item> TRANSISTOR = ITEMS.registerSimpleItem("transistor");
+    public static final DeferredItem<Item> IC_CHIP_BASIC = ITEMS.registerSimpleItem("ic_chip_basic");
+    public static final DeferredItem<Item> IC_CHIP_ADVANCED = ITEMS.registerSimpleItem("ic_chip_advanced");
+
     // M2: belts.
     public static final DeferredItem<BlockItem> CONVEYOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CONVEYOR);
     public static final DeferredItem<BlockItem> SPLITTER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SPLITTER);

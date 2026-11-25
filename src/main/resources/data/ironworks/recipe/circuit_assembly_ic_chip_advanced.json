@@ -1,0 +1,35 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:ic_chip_basic"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:transistor"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:gold_foil"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:silicon_wafer"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:ic_chip_advanced",
+    "count": 1
+  },
+  "time": 300,
+  "energy_per_tick": 50
+}

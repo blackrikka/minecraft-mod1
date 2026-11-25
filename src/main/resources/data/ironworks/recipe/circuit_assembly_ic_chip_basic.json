@@ -1,0 +1,29 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:resistor"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:diode"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:transistor"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:ic_chip_basic",
+    "count": 1
+  },
+  "time": 200,
+  "energy_per_tick": 40
+}

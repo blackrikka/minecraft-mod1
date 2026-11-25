@@ -1,0 +1,29 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:silicon_wafer"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:gold_foil"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:copper_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:transistor",
+    "count": 2
+  },
+  "time": 150,
+  "energy_per_tick": 40
+}

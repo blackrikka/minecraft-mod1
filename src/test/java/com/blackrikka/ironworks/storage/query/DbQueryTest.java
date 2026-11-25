@@ -49,9 +49,11 @@ class DbQueryTest {
     }
 
     @Test
-    void partialMatchAlsoReadsNamespace() {
-        assertTrue(matches("minecr", IRON_ORE));
-        assertFalse(matches("minecr", RUBBER_LOG));
+    void plainWordDoesNotMatchNamespace() {
+        assertFalse(matches("minecr", IRON_ORE));
+        assertFalse(matches("ironworks", RUBBER_LOG));
+        assertFalse(matches("iron", row("ironworks", "tin_ingot", 1)));
+        assertTrue(matches("iron", row("minecraft", "iron_ore", 1)));
     }
 
     @Test

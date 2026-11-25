@@ -1,0 +1,29 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:clay_ball"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:charcoal"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:copper_dust"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "ironworks:resistor",
+    "count": 2
+  },
+  "time": 120,
+  "energy_per_tick": 40
+}

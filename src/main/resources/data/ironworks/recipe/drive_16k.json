@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "AWA",
+    "AXA",
     "SDS",
-    "AWA"
+    "AXA"
   ],
   "key": {
     "A": { "item": "ironworks:advanced_circuit" },
-    "W": { "item": "ironworks:silicon_wafer" },
+    "X": { "item": "ironworks:ic_chip_advanced" },
     "S": { "item": "ironworks:steel_plate" },
     "D": { "item": "minecraft:diamond" }
   },
