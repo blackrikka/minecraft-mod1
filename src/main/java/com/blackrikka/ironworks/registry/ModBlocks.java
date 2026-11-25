@@ -2,6 +2,9 @@ package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.block.RubberLogBlock;
+import com.blackrikka.ironworks.conveyor.ConveyorBlock;
+import com.blackrikka.ironworks.conveyor.SorterBlock;
+import com.blackrikka.ironworks.conveyor.SplitterBlock;
 import com.blackrikka.ironworks.energy.CableBlock;
 import com.blackrikka.ironworks.machine.AlloyFurnaceBlock;
 import com.blackrikka.ironworks.machine.CircuitAssemblerBlock;
@@ -206,4 +209,29 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)
                     .lightLevel(state -> state.getValue(CircuitAssemblerBlock.LIT) ? 13 : 0)));
+
+    // M2: conveyor, splitter and sorter (flat plates, 4/16 high; items are drawn on top by the renderer).
+    public static final DeferredBlock<Block> CONVEYOR = BLOCKS.register(
+            "conveyor",
+            () -> new ConveyorBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(1.5F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final DeferredBlock<Block> SPLITTER = BLOCKS.register(
+            "splitter",
+            () -> new SplitterBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(1.5F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final DeferredBlock<Block> SORTER = BLOCKS.register(
+            "sorter",
+            () -> new SorterBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(1.5F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()));
 }

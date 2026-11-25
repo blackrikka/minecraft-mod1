@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ironworks:conveyor"
+    },
+    {
+      "item": "ironworks:conveyor"
+    },
+    {
+      "item": "ironworks:conveyor"
+    },
+    {
+      "item": "ironworks:iron_plate"
+    }
+  ],
+  "result": {
+    "id": "ironworks:splitter",
+    "count": 1
+  }
+}

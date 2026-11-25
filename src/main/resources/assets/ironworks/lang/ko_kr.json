@@ -39,5 +39,11 @@
   "item.ironworks.silicon": "실리콘",
   "item.ironworks.silicon_wafer": "실리콘 웨이퍼",
   "item.ironworks.basic_circuit": "기초 회로",
-  "item.ironworks.advanced_circuit": "고급 회로"
+  "item.ironworks.advanced_circuit": "고급 회로",
+  "block.ironworks.conveyor": "컨베이어",
+  "block.ironworks.splitter": "분배기",
+  "block.ironworks.sorter": "필터",
+  "message.ironworks.sorter.filter": "필터: %s",
+  "message.ironworks.sorter.filter_none": "필터: 없음",
+  "message.ironworks.sorter.cleared": "필터 해제됨"
 }

@@ -73,6 +73,37 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/item/silicon_wafer.png", (0x4f, 0x6a, 0x8a)),
     ("src/main/resources/assets/ironworks/textures/item/basic_circuit.png", (0x3c, 0x9a, 0x4c)),
     ("src/main/resources/assets/ironworks/textures/item/advanced_circuit.png", (0x9a, 0x4c, 0xc8)),
+    # M2: conveyor, splitter and sorter sides (solid placeholders).
+    ("src/main/resources/assets/ironworks/textures/block/conveyor_side.png", (0x4a, 0x4f, 0x55)),
+    ("src/main/resources/assets/ironworks/textures/block/splitter_top.png", (0x4f, 0x6e, 0x58)),
+    ("src/main/resources/assets/ironworks/textures/block/splitter_side.png", (0x3e, 0x58, 0x46)),
+    ("src/main/resources/assets/ironworks/textures/block/sorter_top.png", (0x6e, 0x58, 0x7a)),
+    ("src/main/resources/assets/ironworks/textures/block/sorter_side.png", (0x52, 0x40, 0x5c)),
+]
+
+# Patterned textures: (relative output path, 16x16 rows of RGB tuples).
+# The conveyor top shows an arrow pointing to the top edge of the image. The top face is drawn with the image's top
+# edge toward north, so the arrow points north at facing=north and the blockstate rotates it for the other facings.
+CONVEYOR_BG = (0x3a, 0x3f, 0x45)
+CONVEYOR_ARROW = (0xf0, 0xc0, 0x30)
+
+
+def arrow_rows(bg: tuple, fg: tuple) -> list:
+    rows = [[bg] * SIZE for _ in range(SIZE)]
+    # Head: rows 2..7, widening by one pixel per side per row (7..8 at the tip, 2..13 at the base).
+    for y in range(2, 8):
+        half = y - 2
+        for x in range(7 - half, 9 + half):
+            rows[y][x] = fg
+    # Shaft: rows 8..13, columns 6..9.
+    for y in range(8, 14):
+        for x in range(6, 10):
+            rows[y][x] = fg
+    return rows
+
+
+PATTERN_TEXTURES = [
+    ("src/main/resources/assets/ironworks/textures/block/conveyor_top.png", arrow_rows(CONVEYOR_BG, CONVEYOR_ARROW)),
 ]
 
 
@@ -91,6 +122,16 @@ def solid_png(width: int, height: int, rgb: tuple) -> bytes:
     return signature + png_chunk(b"IHDR", ihdr) + png_chunk(b"IDAT", idat) + png_chunk(b"IEND", b"")
 
 
+def pattern_png(rows: list) -> bytes:
+    signature = b"\x89PNG\r\n\x1a\n"
+    height = len(rows)
+    width = len(rows[0])
+    ihdr = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    raw = b"".join(b"\x00" + b"".join(bytes(px) for px in row) for row in rows)
+    idat = zlib.compress(raw, 9)
+    return signature + png_chunk(b"IHDR", ihdr) + png_chunk(b"IDAT", idat) + png_chunk(b"IEND", b"")
+
+
 def main() -> None:
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for rel_path, rgb in TEXTURES:
@@ -99,6 +140,12 @@ def main() -> None:
         with open(out_path, "wb") as f:
             f.write(solid_png(SIZE, SIZE, rgb))
         print(f"wrote {rel_path} ({SIZE}x{SIZE}, rgb={rgb})")
+    for rel_path, rows in PATTERN_TEXTURES:
+        out_path = os.path.join(project_root, rel_path)
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        with open(out_path, "wb") as f:
+            f.write(pattern_png(rows))
+        print(f"wrote {rel_path} ({SIZE}x{SIZE}, arrow pattern)")
 
 
 if __name__ == "__main__":

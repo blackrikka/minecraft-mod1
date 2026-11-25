@@ -54,6 +54,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SILICON_WAFER.get());
                         output.accept(ModItems.BASIC_CIRCUIT.get());
                         output.accept(ModItems.ADVANCED_CIRCUIT.get());
+                        output.accept(ModItems.CONVEYOR_ITEM.get());
+                        output.accept(ModItems.SPLITTER_ITEM.get());
+                        output.accept(ModItems.SORTER_ITEM.get());
                     })
                     .build()
     );

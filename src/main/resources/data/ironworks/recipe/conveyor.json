@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "SIS"
+  ],
+  "key": {
+    "R": {
+      "item": "ironworks:rubber"
+    },
+    "S": {
+      "item": "ironworks:steel_plate"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "ironworks:conveyor",
+    "count": 6
+  }
+}

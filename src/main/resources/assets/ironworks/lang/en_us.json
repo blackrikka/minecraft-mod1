@@ -39,5 +39,11 @@
   "item.ironworks.silicon": "Silicon",
   "item.ironworks.silicon_wafer": "Silicon Wafer",
   "item.ironworks.basic_circuit": "Basic Circuit",
-  "item.ironworks.advanced_circuit": "Advanced Circuit"
+  "item.ironworks.advanced_circuit": "Advanced Circuit",
+  "block.ironworks.conveyor": "Conveyor",
+  "block.ironworks.splitter": "Splitter",
+  "block.ironworks.sorter": "Sorter",
+  "message.ironworks.sorter.filter": "Filter: %s",
+  "message.ironworks.sorter.filter_none": "Filter: none",
+  "message.ironworks.sorter.cleared": "Filter cleared"
 }

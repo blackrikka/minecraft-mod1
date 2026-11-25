@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ironworks:block/conveyor"
+    },
+    "facing=east": {
+      "model": "ironworks:block/conveyor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ironworks:block/conveyor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ironworks:block/conveyor",
+      "y": 270
+    }
+  }
+}

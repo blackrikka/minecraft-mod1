@@ -56,4 +56,9 @@ public class ModItems {
     public static final DeferredItem<Item> SILICON_WAFER = ITEMS.registerSimpleItem("silicon_wafer");
     public static final DeferredItem<Item> BASIC_CIRCUIT = ITEMS.registerSimpleItem("basic_circuit");
     public static final DeferredItem<Item> ADVANCED_CIRCUIT = ITEMS.registerSimpleItem("advanced_circuit");
+
+    // M2: belts.
+    public static final DeferredItem<BlockItem> CONVEYOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CONVEYOR);
+    public static final DeferredItem<BlockItem> SPLITTER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SPLITTER);
+    public static final DeferredItem<BlockItem> SORTER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SORTER);
 }

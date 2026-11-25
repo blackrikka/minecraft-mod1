@@ -1,6 +1,9 @@
 package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
+import com.blackrikka.ironworks.conveyor.ConveyorBlockEntity;
+import com.blackrikka.ironworks.conveyor.SorterBlockEntity;
+import com.blackrikka.ironworks.conveyor.SplitterBlockEntity;
 import com.blackrikka.ironworks.energy.CableBlockEntity;
 import com.blackrikka.ironworks.machine.AlloyFurnaceBlockEntity;
 import com.blackrikka.ironworks.machine.CircuitAssemblerBlockEntity;
@@ -63,4 +66,20 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("circuit_assembler",
                     () -> BlockEntityType.Builder.of(CircuitAssemblerBlockEntity::new,
                             ModBlocks.CIRCUIT_ASSEMBLER.get()).build(null));
+
+    // M2: belt buffers.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConveyorBlockEntity>> CONVEYOR =
+            BLOCK_ENTITY_TYPES.register("conveyor",
+                    () -> BlockEntityType.Builder.of(ConveyorBlockEntity::new,
+                            ModBlocks.CONVEYOR.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SplitterBlockEntity>> SPLITTER =
+            BLOCK_ENTITY_TYPES.register("splitter",
+                    () -> BlockEntityType.Builder.of(SplitterBlockEntity::new,
+                            ModBlocks.SPLITTER.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SorterBlockEntity>> SORTER =
+            BLOCK_ENTITY_TYPES.register("sorter",
+                    () -> BlockEntityType.Builder.of(SorterBlockEntity::new,
+                            ModBlocks.SORTER.get()).build(null));
 }

@@ -65,5 +65,17 @@ public class ModCapabilities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.CIRCUIT_ASSEMBLER.get(),
                 (be, side) -> be.getItemView());
+
+        // M2: belts accept one item through every face except the front and never give items out
+        // (their own pulls read the block behind them directly).
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CONVEYOR.get(),
+                (be, side) -> be.getItemHandler(side));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.SPLITTER.get(),
+                (be, side) -> be.getItemHandler(side));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.SORTER.get(),
+                (be, side) -> be.getItemHandler(side));
     }
 }

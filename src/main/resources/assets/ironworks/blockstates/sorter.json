@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ironworks:block/sorter"
+    },
+    "facing=east": {
+      "model": "ironworks:block/sorter",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ironworks:block/sorter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ironworks:block/sorter",
+      "y": 270
+    }
+  }
+}
