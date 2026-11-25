@@ -123,6 +123,22 @@ tools/gen_textures.py
 - **디버그 명령** `/ironworks storage <x y z>`(OP 전용): 해당 위치에서 BFS 로 찾은 네트워크의 online 여부, 랙 수, 스냅샷(종류별 수량)을 채팅으로 출력. 검증에 사용.
 - 공통: lang(en_us/ko_kr), 임시 텍스처, blockstates/models, 루트테이블, mineable/pickaxe 태그, 크리에이티브 탭(드라이브 3 포함).
 
+### M3b 상세 – DB 터미널 (확정, 2단계로 분할)
+**M3b-1 쿼리 엔진 (서버 로직, 명령어로 검증 가능)**
+- `storage/query/QueryRow`(record: `String namespace, String path, Set<String> tags, long count`) — Minecraft 클래스에 의존하지 않는 순수 데이터. 서비스가 네트워크 스냅샷(`Map<ItemKey,Long>`)을 `QueryRow` + 원본 템플릿으로 변환할 때 `ItemStack.getTags()`로 태그 문자열(`minecraft:logs` 형태)을 채운다.
+- `storage/query/DbQuery`: 문자열 쿼리를 파싱해 `Predicate<QueryRow>` 로 만든다. 공백으로 구분된 토큰은 모두 AND. 토큰 종류: 일반 단어(경로/네임스페이스에 대한 부분 일치, 대소문자 무시, `_`와 공백 동일 취급), `@모드ID`(네임스페이스 일치), `#태그`(`#minecraft:logs`, 네임스페이스 생략 시 `minecraft:`와 `c:` 둘 다 허용), `>N` `<N` `>=N` `<=N` `=N`(수량 비교, `1k`/`2.5m` 같은 접미사 허용), 토큰 앞 `-` 는 부정(`-@minecraft`). 잘못된 토큰은 무시하지 않고 `DbQuery.ParseResult`의 `errors` 목록에 담아 반환(서비스는 오류가 있어도 나머지 조건으로 실행).
+- `storage/query/SortMode`(`NAME`, `COUNT`, `ID`) + `descending` 불리언. 정렬은 안정 정렬, 동점은 레지스트리 ID 로 결정.
+- `storage/query/QueryService.run(StorageNetwork, QueryRequest(query, sort, descending, page, pageSize))` → `QueryPage(List<Entry(ItemStack template, long count)>, int totalMatches, int page, int pageCount, boolean online, long usedItems, int rackCount)`. 페이지는 0부터, 범위를 벗어나면 마지막 페이지로 보정. 네트워크가 오프라인이면 빈 결과 + `online=false`.
+- `QueryService.extract(network, ItemStack template, long amount)` / `insert(...)` 는 `StorageNetwork` 의 기존 API 를 감싸 결과 수량을 반환(터미널 패킷 처리와 명령어가 같은 메서드를 사용).
+- JUnit 5 도입: `build.gradle` 에 `testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'`, `testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'`, `tasks.withType(Test){ useJUnitPlatform() }`. `DbQuery` 파서/필터를 `QueryRow` 만으로 테스트(부분 일치, `@`, `#`, 수량 비교와 접미사, 부정, AND 결합, 오류 토큰, 빈 쿼리 = 전체).
+- 디버그 명령(OP): `/ironworks query <x y z> <쿼리…>`(마지막에 선택 인자 없이, 정렬/페이지는 `sort=count desc page=1` 같은 키=값 토큰을 쿼리 문자열 앞에서 분리), `/ironworks extract <x y z> <아이템> <수량>`(추출한 아이템을 해당 좌표 위에 드롭).
+
+**M3b-2 터미널 블록 + 화면 + 패킷**
+- `db_terminal` 블록(facing, 네트워크 케이블/랙/포트와 연결), 우클릭 시 `DbTerminalMenu`(플레이어 인벤토리 슬롯만, 결과는 가상). 제작: `S A S / C G C / S R S`(S=steel_plate, A=advanced_circuit, C=machine_casing, G=minecraft:glass, R=redstone).
+- 패킷(`CustomPacketPayload` + `RegisterPayloadHandlersEvent`): C2S `QueryRequest`(쿼리, 정렬, 내림차순, 페이지), S2C `QueryResult`(`QueryPage` 내용), C2S `TakeRequest`(템플릿 ItemStack, 모드: 한 스택/절반/1개/쉬프트=인벤토리로), C2S `InsertRequest`(커서 전체/1개). 서버는 메뉴가 열려 있고 거리 ≤ 8 인지 검증, 수량 클램프, 템플릿은 `ItemKey` 로 재확인.
+- 화면: 검색창(`EditBox`, 입력 후 0.3초 디바운스로 쿼리 전송), 정렬 버튼(이름/수량/ID, 오름·내림 토글), 9×5 결과 격자(아이템 렌더 + 수량 약어 1.2K/3.4M), 페이지 이전/다음, 상태줄(Online/Offline · 총 항목 수 · 랙 수), 쿼리 오류 표시. 결과 칸 클릭: 좌클릭=한 스택, 우클릭=절반, 쉬프트 좌클릭=인벤토리로. 커서에 아이템이 있을 때 결과 영역 클릭=넣기. 플레이어 인벤토리 쉬프트 클릭=넣기(`quickMoveStack`).
+- 오프라인/빈 네트워크에서는 안내 문구만 표시.
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
