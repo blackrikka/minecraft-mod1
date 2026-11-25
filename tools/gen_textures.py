@@ -27,6 +27,8 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/block/combustion_generator_side.png", (0x6e, 0x6e, 0x6e)),
     ("src/main/resources/assets/ironworks/textures/block/combustion_generator_top.png", (0x8a, 0x8a, 0x8a)),
     ("src/main/resources/assets/ironworks/textures/block/creative_battery.png", (0x7a, 0x2f, 0xb0)),
+    # M1c: copper cable.
+    ("src/main/resources/assets/ironworks/textures/block/copper_cable.png", (0xb8, 0x73, 0x33)),
 ]
 
 

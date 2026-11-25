@@ -22,4 +22,7 @@ public class ModItems {
     // M1b: combustion generator and development battery.
     public static final DeferredItem<BlockItem> COMBUSTION_GENERATOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.COMBUSTION_GENERATOR);
     public static final DeferredItem<BlockItem> CREATIVE_BATTERY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CREATIVE_BATTERY);
+
+    // M1c: copper cable.
+    public static final DeferredItem<BlockItem> COPPER_CABLE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.COPPER_CABLE);
 }

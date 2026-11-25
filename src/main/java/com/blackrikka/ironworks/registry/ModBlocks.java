@@ -2,6 +2,7 @@ package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.block.RubberLogBlock;
+import com.blackrikka.ironworks.energy.CableBlock;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlock;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlock;
 import net.minecraft.core.registries.Registries;
@@ -101,4 +102,13 @@ public class ModBlocks {
                     .mapColor(MapColor.COLOR_PURPLE)
                     .strength(2.0F)
                     .sound(SoundType.METAL)));
+
+    // M1c: copper cable (6-face connection, multipart model).
+    public static final DeferredBlock<Block> COPPER_CABLE = BLOCKS.register(
+            "copper_cable",
+            () -> new CableBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE)
+                    .strength(1.0F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()));
 }

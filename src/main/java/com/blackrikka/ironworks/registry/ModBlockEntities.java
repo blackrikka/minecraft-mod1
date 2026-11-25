@@ -1,6 +1,7 @@
 package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
+import com.blackrikka.ironworks.energy.CableBlockEntity;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlockEntity;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlockEntity;
 import net.minecraft.core.registries.Registries;
@@ -23,4 +24,10 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("creative_battery",
                     () -> BlockEntityType.Builder.of(CreativeBatteryBlockEntity::new,
                             ModBlocks.CREATIVE_BATTERY.get()).build(null));
+
+    // M1c: copper cable buffer.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CableBlockEntity>> COPPER_CABLE =
+            BLOCK_ENTITY_TYPES.register("copper_cable",
+                    () -> BlockEntityType.Builder.of(CableBlockEntity::new,
+                            ModBlocks.COPPER_CABLE.get()).build(null));
 }

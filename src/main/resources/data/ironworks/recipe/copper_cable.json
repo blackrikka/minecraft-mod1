@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "CCC",
+    "RRR"
+  ],
+  "key": {
+    "R": { "item": "ironworks:rubber" },
+    "C": { "item": "minecraft:copper_ingot" }
+  },
+  "result": {
+    "id": "ironworks:copper_cable",
+    "count": 6
+  }
+}

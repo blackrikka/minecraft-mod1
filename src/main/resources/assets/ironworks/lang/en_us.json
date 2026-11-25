@@ -10,5 +10,7 @@
   "block.ironworks.creative_battery": "Creative Battery",
   "container.ironworks.combustion_generator": "Combustion Generator",
   "message.ironworks.creative_battery.total": "Total received: %s FE",
-  "itemGroup.ironworks": "Ironworks"
+  "itemGroup.ironworks": "Ironworks",
+  "block.ironworks.copper_cable": "Copper Cable",
+  "message.ironworks.copper_cable.buffer": "Cable buffer: %s"
 }

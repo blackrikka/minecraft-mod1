@@ -22,5 +22,10 @@ public class ModCapabilities {
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
                 ModBlockEntities.CREATIVE_BATTERY.get(),
                 (be, side) -> be.getEnergySink());
+
+        // M1c: copper cable accepts FE from every side; extraction is internal to the cable (view returns 0).
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.COPPER_CABLE.get(),
+                (be, side) -> be.getExternalEnergy());
     }
 }

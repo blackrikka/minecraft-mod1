@@ -10,5 +10,7 @@
   "block.ironworks.creative_battery": "크리에이티브 배터리",
   "container.ironworks.combustion_generator": "연소 발전기",
   "message.ironworks.creative_battery.total": "누적 수신: %s FE",
-  "itemGroup.ironworks": "아이언웍스"
+  "itemGroup.ironworks": "아이언웍스",
+  "block.ironworks.copper_cable": "구리 케이블",
+  "message.ironworks.copper_cable.buffer": "케이블 버퍼: %s"
 }

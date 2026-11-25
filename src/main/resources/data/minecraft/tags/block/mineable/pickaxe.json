@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "ironworks:combustion_generator"
+    "ironworks:combustion_generator",
+    "ironworks:copper_cable"
   ]
 }
