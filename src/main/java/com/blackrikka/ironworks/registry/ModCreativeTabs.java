@@ -39,6 +39,21 @@ public class ModCreativeTabs {
                         output.accept(ModItems.MACHINE_CASING_ITEM.get());
                         output.accept(ModItems.CRUSHER_ITEM.get());
                         output.accept(ModItems.ELECTRIC_FURNACE_ITEM.get());
+                        output.accept(ModItems.SILICON_ORE_ITEM.get());
+                        output.accept(ModItems.DEEPSLATE_SILICON_ORE_ITEM.get());
+                        output.accept(ModItems.ALLOY_FURNACE_ITEM.get());
+                        output.accept(ModItems.COMPRESSOR_ITEM.get());
+                        output.accept(ModItems.CIRCUIT_ASSEMBLER_ITEM.get());
+                        output.accept(ModItems.STEEL_INGOT.get());
+                        output.accept(ModItems.IRON_PLATE.get());
+                        output.accept(ModItems.COPPER_PLATE.get());
+                        output.accept(ModItems.STEEL_PLATE.get());
+                        output.accept(ModItems.GOLD_FOIL.get());
+                        output.accept(ModItems.PLASTIC_SHEET.get());
+                        output.accept(ModItems.SILICON.get());
+                        output.accept(ModItems.SILICON_WAFER.get());
+                        output.accept(ModItems.BASIC_CIRCUIT.get());
+                        output.accept(ModItems.ADVANCED_CIRCUIT.get());
                     })
                     .build()
     );

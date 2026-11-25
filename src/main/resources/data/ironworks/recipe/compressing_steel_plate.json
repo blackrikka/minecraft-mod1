@@ -1,0 +1,17 @@
+{
+  "type": "ironworks:compressing",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:steel_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:steel_plate",
+    "count": 1
+  },
+  "time": 100,
+  "energy_per_tick": 30
+}

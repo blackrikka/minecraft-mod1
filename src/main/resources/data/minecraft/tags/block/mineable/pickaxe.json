@@ -7,6 +7,11 @@
     "ironworks:deepslate_tin_ore",
     "ironworks:machine_casing",
     "ironworks:crusher",
-    "ironworks:electric_furnace"
+    "ironworks:electric_furnace",
+    "ironworks:silicon_ore",
+    "ironworks:deepslate_silicon_ore",
+    "ironworks:alloy_furnace",
+    "ironworks:compressor",
+    "ironworks:circuit_assembler"
   ]
 }

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KKK",
+    "BCB",
+    "IFI"
+  ],
+  "key": {
+    "K": {
+      "item": "minecraft:brick"
+    },
+    "B": {
+      "item": "ironworks:bronze_ingot"
+    },
+    "C": {
+      "item": "ironworks:machine_casing"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "id": "ironworks:alloy_furnace",
+    "count": 1
+  }
+}

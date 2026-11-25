@@ -109,6 +109,17 @@ public abstract class MachineBlockEntity extends BlockEntity implements MenuProv
     /** Menu type used when a player opens this machine. */
     protected abstract MenuType<?> menuType();
 
+    /** True if some recipe of {@code type} accepts {@code stack} as an ingredient. Requires a non-null level. */
+    protected static boolean acceptsRecipeInput(Level level, RecipeType<MachineRecipe> type, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        return level.getRecipeManager()
+                .getAllRecipesFor(type)
+                .stream()
+                .anyMatch(holder -> holder.value().acceptsItem(stack));
+    }
+
     /** Shared lookup for {@link MachineRecipe} types: returns the craft, or {@code null} if nothing matches. */
     @Nullable
     protected final Craft findMachineCraft(Level level, RecipeType<MachineRecipe> type) {

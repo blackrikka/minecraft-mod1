@@ -17,6 +17,14 @@ public class ModRecipeSerializers {
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MachineRecipe>> CRUSHING =
             machineSerializer("crushing", ModRecipeTypes.CRUSHING);
 
+    // M1e: alloying, compressing, circuit_assembly recipes (same MachineRecipe class, separate types).
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MachineRecipe>> ALLOYING =
+            machineSerializer("alloying", ModRecipeTypes.ALLOYING);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MachineRecipe>> COMPRESSING =
+            machineSerializer("compressing", ModRecipeTypes.COMPRESSING);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MachineRecipe>> CIRCUIT_ASSEMBLY =
+            machineSerializer("circuit_assembly", ModRecipeTypes.CIRCUIT_ASSEMBLY);
+
     private static DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MachineRecipe>> machineSerializer(
             String name, DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> type) {
         return RECIPE_SERIALIZERS.register(name, () -> new MachineRecipeSerializer(type::get));

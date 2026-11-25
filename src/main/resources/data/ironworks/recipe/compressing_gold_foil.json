@@ -1,0 +1,17 @@
+{
+  "type": "ironworks:compressing",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:gold_foil",
+    "count": 2
+  },
+  "time": 100,
+  "energy_per_tick": 30
+}

@@ -57,7 +57,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         // Input slots (the slot origin is one pixel inside the 18x18 background).
         int inputs = menu.getInputSlots();
         for (int i = 0; i < inputs; i++) {
-            drawSlot(graphics, x + MachineMenu.inputSlotX(i, inputs) - 1, y + MachineMenu.SLOT_Y - 1);
+            drawSlot(graphics, x + MachineMenu.inputSlotX(i, inputs) - 1, y + MachineMenu.inputSlotY(i, inputs) - 1);
         }
         drawSlot(graphics, x + MachineMenu.OUTPUT_X - 1, y + MachineMenu.SLOT_Y - 1);
 

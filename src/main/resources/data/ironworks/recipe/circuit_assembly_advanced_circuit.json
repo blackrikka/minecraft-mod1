@@ -1,0 +1,35 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:basic_circuit"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:silicon_wafer"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:gold_foil"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:advanced_circuit",
+    "count": 1
+  },
+  "time": 300,
+  "energy_per_tick": 50
+}

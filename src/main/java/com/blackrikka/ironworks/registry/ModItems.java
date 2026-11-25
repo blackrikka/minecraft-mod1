@@ -39,4 +39,21 @@ public class ModItems {
     public static final DeferredItem<BlockItem> MACHINE_CASING_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.MACHINE_CASING);
     public static final DeferredItem<BlockItem> CRUSHER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CRUSHER);
     public static final DeferredItem<BlockItem> ELECTRIC_FURNACE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.ELECTRIC_FURNACE);
+
+    // M1e: silicon ore, machines, and processed materials.
+    public static final DeferredItem<BlockItem> SILICON_ORE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SILICON_ORE);
+    public static final DeferredItem<BlockItem> DEEPSLATE_SILICON_ORE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_SILICON_ORE);
+    public static final DeferredItem<BlockItem> ALLOY_FURNACE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.ALLOY_FURNACE);
+    public static final DeferredItem<BlockItem> COMPRESSOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.COMPRESSOR);
+    public static final DeferredItem<BlockItem> CIRCUIT_ASSEMBLER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CIRCUIT_ASSEMBLER);
+    public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerSimpleItem("steel_ingot");
+    public static final DeferredItem<Item> IRON_PLATE = ITEMS.registerSimpleItem("iron_plate");
+    public static final DeferredItem<Item> COPPER_PLATE = ITEMS.registerSimpleItem("copper_plate");
+    public static final DeferredItem<Item> STEEL_PLATE = ITEMS.registerSimpleItem("steel_plate");
+    public static final DeferredItem<Item> GOLD_FOIL = ITEMS.registerSimpleItem("gold_foil");
+    public static final DeferredItem<Item> PLASTIC_SHEET = ITEMS.registerSimpleItem("plastic_sheet");
+    public static final DeferredItem<Item> SILICON = ITEMS.registerSimpleItem("silicon");
+    public static final DeferredItem<Item> SILICON_WAFER = ITEMS.registerSimpleItem("silicon_wafer");
+    public static final DeferredItem<Item> BASIC_CIRCUIT = ITEMS.registerSimpleItem("basic_circuit");
+    public static final DeferredItem<Item> ADVANCED_CIRCUIT = ITEMS.registerSimpleItem("advanced_circuit");
 }

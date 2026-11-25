@@ -1,0 +1,23 @@
+{
+  "type": "ironworks:alloying",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:charcoal"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:steel_ingot",
+    "count": 1
+  },
+  "time": 200,
+  "energy_per_tick": 30
+}

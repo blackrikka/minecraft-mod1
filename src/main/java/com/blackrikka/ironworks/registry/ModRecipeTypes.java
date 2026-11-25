@@ -19,6 +19,16 @@ public class ModRecipeTypes {
     /** Crusher: ore to dust. */
     public static final DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> CRUSHING = machineType("crushing");
 
+    /** M1e: alloy furnace (two inputs to one alloy). */
+    public static final DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> ALLOYING = machineType("alloying");
+
+    /** M1e: compressor (one input to plate, foil or wafer). */
+    public static final DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> COMPRESSING = machineType("compressing");
+
+    /** M1e: circuit assembler (four inputs to a circuit). */
+    public static final DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> CIRCUIT_ASSEMBLY =
+            machineType("circuit_assembly");
+
     private static DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> machineType(String name) {
         return RECIPE_TYPES.register(name,
                 () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Ironworks.MOD_ID, name)));

@@ -42,5 +42,28 @@ public class ModCapabilities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.ELECTRIC_FURNACE.get(),
                 (be, side) -> be.getItemView());
+
+        // M1e: alloy furnace (2 inputs), compressor (1 input), circuit assembler (4 inputs).
+        // Energy is receive-only; hoppers and conveyors insert into input slots and extract from the output slot.
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.ALLOY_FURNACE.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.ALLOY_FURNACE.get(),
+                (be, side) -> be.getItemView());
+
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.COMPRESSOR.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.COMPRESSOR.get(),
+                (be, side) -> be.getItemView());
+
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.CIRCUIT_ASSEMBLER.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CIRCUIT_ASSEMBLER.get(),
+                (be, side) -> be.getItemView());
     }
 }

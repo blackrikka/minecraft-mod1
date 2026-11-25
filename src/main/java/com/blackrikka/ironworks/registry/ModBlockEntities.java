@@ -2,7 +2,10 @@ package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.energy.CableBlockEntity;
+import com.blackrikka.ironworks.machine.AlloyFurnaceBlockEntity;
+import com.blackrikka.ironworks.machine.CircuitAssemblerBlockEntity;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlockEntity;
+import com.blackrikka.ironworks.machine.CompressorBlockEntity;
 import com.blackrikka.ironworks.machine.CrusherBlockEntity;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlockEntity;
 import com.blackrikka.ironworks.machine.ElectricFurnaceBlockEntity;
@@ -44,4 +47,20 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("electric_furnace",
                     () -> BlockEntityType.Builder.of(ElectricFurnaceBlockEntity::new,
                             ModBlocks.ELECTRIC_FURNACE.get()).build(null));
+
+    // M1e: alloy furnace, compressor, circuit assembler.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AlloyFurnaceBlockEntity>> ALLOY_FURNACE =
+            BLOCK_ENTITY_TYPES.register("alloy_furnace",
+                    () -> BlockEntityType.Builder.of(AlloyFurnaceBlockEntity::new,
+                            ModBlocks.ALLOY_FURNACE.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CompressorBlockEntity>> COMPRESSOR =
+            BLOCK_ENTITY_TYPES.register("compressor",
+                    () -> BlockEntityType.Builder.of(CompressorBlockEntity::new,
+                            ModBlocks.COMPRESSOR.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CircuitAssemblerBlockEntity>> CIRCUIT_ASSEMBLER =
+            BLOCK_ENTITY_TYPES.register("circuit_assembler",
+                    () -> BlockEntityType.Builder.of(CircuitAssemblerBlockEntity::new,
+                            ModBlocks.CIRCUIT_ASSEMBLER.get()).build(null));
 }

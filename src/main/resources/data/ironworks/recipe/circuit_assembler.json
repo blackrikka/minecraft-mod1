@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GRG",
+    "SCS",
+    "IWI"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "ironworks:steel_ingot"
+    },
+    "C": {
+      "item": "ironworks:machine_casing"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "W": {
+      "item": "ironworks:copper_cable"
+    }
+  },
+  "result": {
+    "id": "ironworks:circuit_assembler",
+    "count": 1
+  }
+}

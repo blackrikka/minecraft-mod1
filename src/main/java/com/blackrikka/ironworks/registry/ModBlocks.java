@@ -3,6 +3,9 @@ package com.blackrikka.ironworks.registry;
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.block.RubberLogBlock;
 import com.blackrikka.ironworks.energy.CableBlock;
+import com.blackrikka.ironworks.machine.AlloyFurnaceBlock;
+import com.blackrikka.ironworks.machine.CircuitAssemblerBlock;
+import com.blackrikka.ironworks.machine.CompressorBlock;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlock;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlock;
 import com.blackrikka.ironworks.machine.CrusherBlock;
@@ -158,4 +161,49 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)
                     .lightLevel(state -> state.getValue(ElectricFurnaceBlock.LIT) ? 13 : 0)));
+
+    // M1e: silicon ore (stone and deepslate variants), same drop rules as tin ore.
+    public static final DeferredBlock<Block> SILICON_ORE = BLOCKS.registerSimpleBlock(
+            "silicon_ore",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.0F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE));
+
+    public static final DeferredBlock<Block> DEEPSLATE_SILICON_ORE = BLOCKS.registerSimpleBlock(
+            "deepslate_silicon_ore",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.DEEPSLATE)
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE));
+
+    // M1e: alloy furnace, compressor, circuit assembler (lit = light level 13 while working).
+    public static final DeferredBlock<Block> ALLOY_FURNACE = BLOCKS.register(
+            "alloy_furnace",
+            () -> new AlloyFurnaceBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+                    .lightLevel(state -> state.getValue(AlloyFurnaceBlock.LIT) ? 13 : 0)));
+
+    public static final DeferredBlock<Block> COMPRESSOR = BLOCKS.register(
+            "compressor",
+            () -> new CompressorBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)
+                    .lightLevel(state -> state.getValue(CompressorBlock.LIT) ? 13 : 0)));
+
+    public static final DeferredBlock<Block> CIRCUIT_ASSEMBLER = BLOCKS.register(
+            "circuit_assembler",
+            () -> new CircuitAssemblerBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_GRAY)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)
+                    .lightLevel(state -> state.getValue(CircuitAssemblerBlock.LIT) ? 13 : 0)));
 }

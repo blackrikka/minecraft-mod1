@@ -24,5 +24,20 @@
   "item.ironworks.bronze_ingot": "Bronze Ingot",
   "block.ironworks.machine_casing": "Machine Casing",
   "block.ironworks.crusher": "Crusher",
-  "block.ironworks.electric_furnace": "Electric Furnace"
+  "block.ironworks.electric_furnace": "Electric Furnace",
+  "block.ironworks.silicon_ore": "Silicon Ore",
+  "block.ironworks.deepslate_silicon_ore": "Deepslate Silicon Ore",
+  "block.ironworks.alloy_furnace": "Alloy Furnace",
+  "block.ironworks.compressor": "Compressor",
+  "block.ironworks.circuit_assembler": "Circuit Assembler",
+  "item.ironworks.steel_ingot": "Steel Ingot",
+  "item.ironworks.iron_plate": "Iron Plate",
+  "item.ironworks.copper_plate": "Copper Plate",
+  "item.ironworks.steel_plate": "Steel Plate",
+  "item.ironworks.gold_foil": "Gold Foil",
+  "item.ironworks.plastic_sheet": "Plastic Sheet",
+  "item.ironworks.silicon": "Silicon",
+  "item.ironworks.silicon_wafer": "Silicon Wafer",
+  "item.ironworks.basic_circuit": "Basic Circuit",
+  "item.ironworks.advanced_circuit": "Advanced Circuit"
 }

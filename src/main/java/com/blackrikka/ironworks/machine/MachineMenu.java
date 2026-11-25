@@ -36,9 +36,30 @@ public class MachineMenu extends AbstractContainerMenu {
     private final int hotbarStart;
     private final int playerEnd;
 
-    /** X position of input slot {@code index} out of {@code count}; slots are 18 px apart and centred. */
+    /** Left column of the input layout for two and four inputs (the single-input layout is centred). */
+    public static final int INPUT_GRID_X = 38;
+
+    /**
+     * X position of input slot {@code index} out of {@code count}. One input is centred on {@link #INPUT_CENTER_X}.
+     * Two inputs sit side by side from {@link #INPUT_GRID_X}. Four inputs form a 2x2 grid (see {@link #inputSlotY}).
+     * All layouts stay left of the progress arrow at x=79.
+     */
     public static int inputSlotX(int index, int count) {
+        if (count == 4) {
+            return INPUT_GRID_X + (index % 2) * 18;
+        }
+        if (count == 2) {
+            return INPUT_GRID_X + index * 18;
+        }
         return INPUT_CENTER_X + index * 18 - (count - 1) * 9;
+    }
+
+    /** Y position of input slot {@code index} out of {@code count}: a 2x2 grid uses rows at y=26 and y=44. */
+    public static int inputSlotY(int index, int count) {
+        if (count == 4) {
+            return index < 2 ? SLOT_Y - 9 : SLOT_Y + 9;
+        }
+        return SLOT_Y;
     }
 
     /** Client-side constructor, called by the menu type extension. The server writes the block position first. */
@@ -64,7 +85,7 @@ public class MachineMenu extends AbstractContainerMenu {
         this.playerEnd = hotbarStart + 9;
 
         for (int i = 0; i < inputSlots; i++) {
-            this.addSlot(new SlotItemHandler(handler, i, inputSlotX(i, inputSlots), SLOT_Y));
+            this.addSlot(new SlotItemHandler(handler, i, inputSlotX(i, inputSlots), inputSlotY(i, inputSlots)));
         }
         this.addSlot(new OutputSlot(handler, outputSlot, OUTPUT_X, SLOT_Y));
         addPlayerInventory(inventory);

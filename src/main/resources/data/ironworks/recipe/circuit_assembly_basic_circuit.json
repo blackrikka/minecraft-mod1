@@ -1,0 +1,35 @@
+{
+  "type": "ironworks:circuit_assembly",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "ironworks:plastic_sheet"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:iron_plate"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:gold_foil"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:basic_circuit",
+    "count": 1
+  },
+  "time": 200,
+  "energy_per_tick": 40
+}

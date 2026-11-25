@@ -19,5 +19,8 @@ public final class ClientModEvents {
         event.register(ModMenus.COMBUSTION_GENERATOR_MENU.get(), CombustionGeneratorScreen::new);
         event.register(ModMenus.CRUSHER_MENU.get(), MachineScreen::new);
         event.register(ModMenus.ELECTRIC_FURNACE_MENU.get(), MachineScreen::new);
+        event.register(ModMenus.ALLOY_FURNACE_MENU.get(), MachineScreen::new);
+        event.register(ModMenus.COMPRESSOR_MENU.get(), MachineScreen::new);
+        event.register(ModMenus.CIRCUIT_ASSEMBLER_MENU.get(), MachineScreen::new);
     }
 }

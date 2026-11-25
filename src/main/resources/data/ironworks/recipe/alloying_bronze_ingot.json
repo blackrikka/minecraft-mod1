@@ -1,0 +1,23 @@
+{
+  "type": "ironworks:alloying",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:copper_ingot"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "ironworks:tin_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:bronze_ingot",
+    "count": 4
+  },
+  "time": 100,
+  "energy_per_tick": 30
+}

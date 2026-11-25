@@ -28,4 +28,20 @@ public class ModMenus {
             MENUS.register("electric_furnace",
                     () -> IMenuTypeExtension.create((id, inventory, buf) -> MachineMenu.fromNetwork(
                             ModMenus.ELECTRIC_FURNACE_MENU.get(), id, inventory, buf, ModBlocks.ELECTRIC_FURNACE.get(), 1)));
+
+    // M1e: alloy furnace (2 inputs), compressor (1 input), circuit assembler (4 inputs).
+    public static final DeferredHolder<MenuType<?>, MenuType<MachineMenu>> ALLOY_FURNACE_MENU =
+            MENUS.register("alloy_furnace",
+                    () -> IMenuTypeExtension.create((id, inventory, buf) -> MachineMenu.fromNetwork(
+                            ModMenus.ALLOY_FURNACE_MENU.get(), id, inventory, buf, ModBlocks.ALLOY_FURNACE.get(), 2)));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<MachineMenu>> COMPRESSOR_MENU =
+            MENUS.register("compressor",
+                    () -> IMenuTypeExtension.create((id, inventory, buf) -> MachineMenu.fromNetwork(
+                            ModMenus.COMPRESSOR_MENU.get(), id, inventory, buf, ModBlocks.COMPRESSOR.get(), 1)));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<MachineMenu>> CIRCUIT_ASSEMBLER_MENU =
+            MENUS.register("circuit_assembler",
+                    () -> IMenuTypeExtension.create((id, inventory, buf) -> MachineMenu.fromNetwork(
+                            ModMenus.CIRCUIT_ASSEMBLER_MENU.get(), id, inventory, buf, ModBlocks.CIRCUIT_ASSEMBLER.get(), 4)));
 }

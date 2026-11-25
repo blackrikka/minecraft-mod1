@@ -24,5 +24,20 @@
   "item.ironworks.bronze_ingot": "청동 주괴",
   "block.ironworks.machine_casing": "기계 외장",
   "block.ironworks.crusher": "분쇄기",
-  "block.ironworks.electric_furnace": "전기 용광로"
+  "block.ironworks.electric_furnace": "전기 용광로",
+  "block.ironworks.silicon_ore": "실리콘 광석",
+  "block.ironworks.deepslate_silicon_ore": "심층암 실리콘 광석",
+  "block.ironworks.alloy_furnace": "합금로",
+  "block.ironworks.compressor": "압축기",
+  "block.ironworks.circuit_assembler": "회로 조립기",
+  "item.ironworks.steel_ingot": "강철 주괴",
+  "item.ironworks.iron_plate": "철 판",
+  "item.ironworks.copper_plate": "구리 판",
+  "item.ironworks.steel_plate": "강철 판",
+  "item.ironworks.gold_foil": "금박",
+  "item.ironworks.plastic_sheet": "플라스틱 판",
+  "item.ironworks.silicon": "실리콘",
+  "item.ironworks.silicon_wafer": "실리콘 웨이퍼",
+  "item.ironworks.basic_circuit": "기초 회로",
+  "item.ironworks.advanced_circuit": "고급 회로"
 }
