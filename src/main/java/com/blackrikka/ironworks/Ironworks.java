@@ -1,8 +1,11 @@
 package com.blackrikka.ironworks;
 
+import com.blackrikka.ironworks.registry.ModBlockEntities;
 import com.blackrikka.ironworks.registry.ModBlocks;
+import com.blackrikka.ironworks.registry.ModCapabilities;
 import com.blackrikka.ironworks.registry.ModCreativeTabs;
 import com.blackrikka.ironworks.registry.ModItems;
+import com.blackrikka.ironworks.registry.ModMenus;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -18,6 +21,9 @@ public class Ironworks {
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
+        ModMenus.MENUS.register(modEventBus);
+        modEventBus.addListener(ModCapabilities::register);
 
         LOGGER.info("Ironworks loaded");
     }

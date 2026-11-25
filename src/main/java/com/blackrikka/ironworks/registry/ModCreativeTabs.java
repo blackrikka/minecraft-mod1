@@ -24,6 +24,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RUBBER_SAPLING_ITEM.get());
                         output.accept(ModItems.RUBBER_SAP.get());
                         output.accept(ModItems.RUBBER.get());
+                        output.accept(ModItems.COMBUSTION_GENERATOR_ITEM.get());
+                        output.accept(ModItems.CREATIVE_BATTERY_ITEM.get());
                     })
                     .build()
     );

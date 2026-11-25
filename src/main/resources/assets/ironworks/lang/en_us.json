@@ -6,5 +6,9 @@
   "block.ironworks.rubber_sapling": "Rubber Sapling",
   "item.ironworks.rubber_sap": "Rubber Sap",
   "item.ironworks.rubber": "Rubber",
+  "block.ironworks.combustion_generator": "Combustion Generator",
+  "block.ironworks.creative_battery": "Creative Battery",
+  "container.ironworks.combustion_generator": "Combustion Generator",
+  "message.ironworks.creative_battery.total": "Total received: %s FE",
   "itemGroup.ironworks": "Ironworks"
 }

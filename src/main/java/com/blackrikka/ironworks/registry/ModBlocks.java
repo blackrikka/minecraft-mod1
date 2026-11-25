@@ -2,6 +2,8 @@ package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.block.RubberLogBlock;
+import com.blackrikka.ironworks.machine.CombustionGeneratorBlock;
+import com.blackrikka.ironworks.machine.CreativeBatteryBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -81,4 +83,22 @@ public class ModBlocks {
                     .instabreak()
                     .sound(SoundType.GRASS)
                     .pushReaction(PushReaction.DESTROY)));
+
+    // M1b: combustion generator (lit = light level 13 while generating).
+    public static final DeferredBlock<Block> COMBUSTION_GENERATOR = BLOCKS.register(
+            "combustion_generator",
+            () -> new CombustionGeneratorBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+                    .lightLevel(state -> state.getValue(CombustionGeneratorBlock.LIT) ? 13 : 0)));
+
+    // M1b: development-only FE sink.
+    public static final DeferredBlock<Block> CREATIVE_BATTERY = BLOCKS.register(
+            "creative_battery",
+            () -> new CreativeBatteryBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PURPLE)
+                    .strength(2.0F)
+                    .sound(SoundType.METAL)));
 }

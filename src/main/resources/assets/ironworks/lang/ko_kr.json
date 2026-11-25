@@ -6,5 +6,9 @@
   "block.ironworks.rubber_sapling": "고무 묘목",
   "item.ironworks.rubber_sap": "고무 수액",
   "item.ironworks.rubber": "고무",
+  "block.ironworks.combustion_generator": "연소 발전기",
+  "block.ironworks.creative_battery": "크리에이티브 배터리",
+  "container.ironworks.combustion_generator": "연소 발전기",
+  "message.ironworks.creative_battery.total": "누적 수신: %s FE",
   "itemGroup.ironworks": "아이언웍스"
 }

@@ -1,0 +1,26 @@
+package com.blackrikka.ironworks.registry;
+
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+
+/** Block capability registration (mod event bus). */
+public class ModCapabilities {
+    private ModCapabilities() {
+    }
+
+    public static void register(RegisterCapabilitiesEvent event) {
+        // M1b: combustion generator. Energy is extract-only (the storage has maxReceive = 0).
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.COMBUSTION_GENERATOR.get(),
+                (be, side) -> be.getEnergyStorage());
+        // Hoppers and conveyors may insert fuel only and cannot extract.
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.COMBUSTION_GENERATOR.get(),
+                (be, side) -> be.getFuelHandler());
+
+        // M1b: development battery accepts FE without limit.
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.CREATIVE_BATTERY.get(),
+                (be, side) -> be.getEnergySink());
+    }
+}

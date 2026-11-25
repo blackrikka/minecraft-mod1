@@ -18,4 +18,8 @@ public class ModItems {
     public static final DeferredItem<BlockItem> RUBBER_SAPLING_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.RUBBER_SAPLING);
     public static final DeferredItem<Item> RUBBER_SAP = ITEMS.registerSimpleItem("rubber_sap");
     public static final DeferredItem<Item> RUBBER = ITEMS.registerSimpleItem("rubber");
+
+    // M1b: combustion generator and development battery.
+    public static final DeferredItem<BlockItem> COMBUSTION_GENERATOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.COMBUSTION_GENERATOR);
+    public static final DeferredItem<BlockItem> CREATIVE_BATTERY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CREATIVE_BATTERY);
 }

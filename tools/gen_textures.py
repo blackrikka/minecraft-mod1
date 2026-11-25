@@ -21,6 +21,12 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/block/rubber_sapling.png", (0x4c, 0x8f, 0x3a)),
     ("src/main/resources/assets/ironworks/textures/item/rubber_sap.png", (0xd9, 0x9a, 0x2b)),
     ("src/main/resources/assets/ironworks/textures/item/rubber.png", (0x22, 0x22, 0x22)),
+    # M1b: combustion generator and development battery.
+    ("src/main/resources/assets/ironworks/textures/block/combustion_generator_front.png", (0x5a, 0x5a, 0x5a)),
+    ("src/main/resources/assets/ironworks/textures/block/combustion_generator_front_lit.png", (0xc0, 0x58, 0x0e)),
+    ("src/main/resources/assets/ironworks/textures/block/combustion_generator_side.png", (0x6e, 0x6e, 0x6e)),
+    ("src/main/resources/assets/ironworks/textures/block/combustion_generator_top.png", (0x8a, 0x8a, 0x8a)),
+    ("src/main/resources/assets/ironworks/textures/block/creative_battery.png", (0x7a, 0x2f, 0xb0)),
 ]
 
 
