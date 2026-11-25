@@ -1,6 +1,7 @@
 package com.blackrikka.ironworks.registry;
 
 import com.blackrikka.ironworks.Ironworks;
+import com.blackrikka.ironworks.storage.DriveItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -61,4 +62,15 @@ public class ModItems {
     public static final DeferredItem<BlockItem> CONVEYOR_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CONVEYOR);
     public static final DeferredItem<BlockItem> SPLITTER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SPLITTER);
     public static final DeferredItem<BlockItem> SORTER_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SORTER);
+
+    // M3a: storage network. Drives stack to 1 and keep their contents in the drive_data component.
+    public static final DeferredItem<BlockItem> SERVER_RACK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SERVER_RACK);
+    public static final DeferredItem<BlockItem> NETWORK_CABLE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.NETWORK_CABLE);
+    public static final DeferredItem<BlockItem> STORAGE_PORT_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.STORAGE_PORT);
+    public static final DeferredItem<DriveItem> DRIVE_1K = ITEMS.register("drive_1k",
+            () -> new DriveItem(DriveItem.Tier.K1, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<DriveItem> DRIVE_4K = ITEMS.register("drive_4k",
+            () -> new DriveItem(DriveItem.Tier.K4, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<DriveItem> DRIVE_16K = ITEMS.register("drive_16k",
+            () -> new DriveItem(DriveItem.Tier.K16, new Item.Properties().stacksTo(1)));
 }

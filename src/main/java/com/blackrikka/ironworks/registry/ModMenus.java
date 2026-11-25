@@ -3,6 +3,7 @@ package com.blackrikka.ironworks.registry;
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.machine.CombustionGeneratorMenu;
 import com.blackrikka.ironworks.machine.MachineMenu;
+import com.blackrikka.ironworks.storage.ServerRackMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
@@ -44,4 +45,10 @@ public class ModMenus {
             MENUS.register("circuit_assembler",
                     () -> IMenuTypeExtension.create((id, inventory, buf) -> MachineMenu.fromNetwork(
                             ModMenus.CIRCUIT_ASSEMBLER_MENU.get(), id, inventory, buf, ModBlocks.CIRCUIT_ASSEMBLER.get(), 4)));
+
+    // M3a: server rack drive GUI.
+    public static final DeferredHolder<MenuType<?>, MenuType<ServerRackMenu>> SERVER_RACK_MENU =
+            MENUS.register("server_rack",
+                    () -> IMenuTypeExtension.create((id, inventory, buf) -> ServerRackMenu.fromNetwork(
+                            ModMenus.SERVER_RACK_MENU.get(), id, inventory, buf)));
 }

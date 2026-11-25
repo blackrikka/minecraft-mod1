@@ -45,5 +45,16 @@
   "block.ironworks.sorter": "Sorter",
   "message.ironworks.sorter.filter": "Filter: %s",
   "message.ironworks.sorter.filter_none": "Filter: none",
-  "message.ironworks.sorter.cleared": "Filter cleared"
+  "message.ironworks.sorter.cleared": "Filter cleared",
+  "block.ironworks.server_rack": "Server Rack",
+  "block.ironworks.network_cable": "Network Cable",
+  "block.ironworks.storage_port": "Storage Port",
+  "item.ironworks.drive_1k": "1K Storage Drive",
+  "item.ironworks.drive_4k": "4K Storage Drive",
+  "item.ironworks.drive_16k": "16K Storage Drive",
+  "tooltip.ironworks.drive.usage": "Used %s / %s  Types %s / %s",
+  "tooltip.ironworks.drive.entry": "  %s x %s",
+  "tooltip.ironworks.drive.more": "  and %s more",
+  "gui.ironworks.server_rack.online": "Online",
+  "gui.ironworks.server_rack.offline": "Offline"
 }

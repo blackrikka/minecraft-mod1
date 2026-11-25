@@ -12,6 +12,8 @@ import com.blackrikka.ironworks.machine.CompressorBlockEntity;
 import com.blackrikka.ironworks.machine.CrusherBlockEntity;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlockEntity;
 import com.blackrikka.ironworks.machine.ElectricFurnaceBlockEntity;
+import com.blackrikka.ironworks.storage.ServerRackBlockEntity;
+import com.blackrikka.ironworks.storage.StoragePortBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -82,4 +84,15 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("sorter",
                     () -> BlockEntityType.Builder.of(SorterBlockEntity::new,
                             ModBlocks.SORTER.get()).build(null));
+
+    // M3a: server rack (drive slots and energy) and storage port (network entry, no buffer).
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ServerRackBlockEntity>> SERVER_RACK =
+            BLOCK_ENTITY_TYPES.register("server_rack",
+                    () -> BlockEntityType.Builder.of(ServerRackBlockEntity::new,
+                            ModBlocks.SERVER_RACK.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StoragePortBlockEntity>> STORAGE_PORT =
+            BLOCK_ENTITY_TYPES.register("storage_port",
+                    () -> BlockEntityType.Builder.of(StoragePortBlockEntity::new,
+                            ModBlocks.STORAGE_PORT.get()).build(null));
 }

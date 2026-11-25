@@ -2,6 +2,7 @@ package com.blackrikka.ironworks;
 
 import com.blackrikka.ironworks.registry.ModBlockEntities;
 import com.blackrikka.ironworks.registry.ModBlocks;
+import com.blackrikka.ironworks.registry.ModDataComponents;
 import com.blackrikka.ironworks.registry.ModCapabilities;
 import com.blackrikka.ironworks.registry.ModCreativeTabs;
 import com.blackrikka.ironworks.registry.ModItems;
@@ -27,6 +28,7 @@ public class Ironworks {
         ModMenus.MENUS.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        ModDataComponents.DATA_COMPONENTS.register(modEventBus);
         modEventBus.addListener(ModCapabilities::register);
 
         LOGGER.info("Ironworks loaded");

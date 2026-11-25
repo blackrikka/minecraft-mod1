@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AWA",
+    "SDS",
+    "AWA"
+  ],
+  "key": {
+    "A": { "item": "ironworks:advanced_circuit" },
+    "W": { "item": "ironworks:silicon_wafer" },
+    "S": { "item": "ironworks:steel_plate" },
+    "D": { "item": "minecraft:diamond" }
+  },
+  "result": {
+    "id": "ironworks:drive_16k",
+    "count": 1
+  }
+}

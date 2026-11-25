@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SPS",
+    "PBP",
+    "SRS"
+  ],
+  "key": {
+    "S": { "item": "ironworks:steel_plate" },
+    "P": { "item": "ironworks:plastic_sheet" },
+    "B": { "item": "ironworks:basic_circuit" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "id": "ironworks:drive_1k",
+    "count": 1
+  }
+}

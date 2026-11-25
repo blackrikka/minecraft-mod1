@@ -45,5 +45,16 @@
   "block.ironworks.sorter": "필터",
   "message.ironworks.sorter.filter": "필터: %s",
   "message.ironworks.sorter.filter_none": "필터: 없음",
-  "message.ironworks.sorter.cleared": "필터 해제됨"
+  "message.ironworks.sorter.cleared": "필터 해제됨",
+  "block.ironworks.server_rack": "서버 랙",
+  "block.ironworks.network_cable": "네트워크 케이블",
+  "block.ironworks.storage_port": "스토리지 포트",
+  "item.ironworks.drive_1k": "1K 저장 드라이브",
+  "item.ironworks.drive_4k": "4K 저장 드라이브",
+  "item.ironworks.drive_16k": "16K 저장 드라이브",
+  "tooltip.ironworks.drive.usage": "사용 %s / %s  종류 %s / %s",
+  "tooltip.ironworks.drive.entry": "  %s x %s",
+  "tooltip.ironworks.drive.more": "  외 %s종",
+  "gui.ironworks.server_rack.online": "온라인",
+  "gui.ironworks.server_rack.offline": "오프라인"
 }

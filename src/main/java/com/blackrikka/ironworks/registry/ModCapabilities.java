@@ -77,5 +77,14 @@ public class ModCapabilities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.SORTER.get(),
                 (be, side) -> be.getItemHandler(side));
+
+        // M3a: server rack accepts FE from cables (receive-only, drives never take energy out).
+        // The storage port exposes one insert-only slot that feeds the network.
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.SERVER_RACK.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.STORAGE_PORT.get(),
+                (be, side) -> be.getItemHandler());
     }
 }

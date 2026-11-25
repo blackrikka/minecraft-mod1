@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "GGG",
+    "PPP"
+  ],
+  "key": {
+    "P": { "item": "ironworks:plastic_sheet" },
+    "G": { "item": "ironworks:gold_foil" }
+  },
+  "result": {
+    "id": "ironworks:network_cable",
+    "count": 6
+  }
+}

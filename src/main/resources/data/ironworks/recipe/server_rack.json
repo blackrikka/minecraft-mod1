@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SBS",
+    "CKC",
+    "SRS"
+  ],
+  "key": {
+    "S": { "item": "ironworks:steel_plate" },
+    "B": { "item": "ironworks:basic_circuit" },
+    "C": { "item": "ironworks:machine_casing" },
+    "K": { "item": "ironworks:copper_cable" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "id": "ironworks:server_rack",
+    "count": 1
+  }
+}

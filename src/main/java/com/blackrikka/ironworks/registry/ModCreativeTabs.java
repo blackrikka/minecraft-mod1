@@ -57,6 +57,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CONVEYOR_ITEM.get());
                         output.accept(ModItems.SPLITTER_ITEM.get());
                         output.accept(ModItems.SORTER_ITEM.get());
+                        output.accept(ModItems.SERVER_RACK_ITEM.get());
+                        output.accept(ModItems.NETWORK_CABLE_ITEM.get());
+                        output.accept(ModItems.STORAGE_PORT_ITEM.get());
+                        output.accept(ModItems.DRIVE_1K.get());
+                        output.accept(ModItems.DRIVE_4K.get());
+                        output.accept(ModItems.DRIVE_16K.get());
                     })
                     .build()
     );

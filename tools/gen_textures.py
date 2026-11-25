@@ -79,6 +79,16 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/block/splitter_side.png", (0x3e, 0x58, 0x46)),
     ("src/main/resources/assets/ironworks/textures/block/sorter_top.png", (0x6e, 0x58, 0x7a)),
     ("src/main/resources/assets/ironworks/textures/block/sorter_side.png", (0x52, 0x40, 0x5c)),
+    # M3a: server rack (front_lit shown while powered), network cable, storage port, and drive icons per tier.
+    ("src/main/resources/assets/ironworks/textures/block/server_rack_front.png", (0x33, 0x3a, 0x44)),
+    ("src/main/resources/assets/ironworks/textures/block/server_rack_front_lit.png", (0x3f, 0xc0, 0x6a)),
+    ("src/main/resources/assets/ironworks/textures/block/server_rack_side.png", (0x4a, 0x52, 0x5c)),
+    ("src/main/resources/assets/ironworks/textures/block/server_rack_top.png", (0x5c, 0x64, 0x6e)),
+    ("src/main/resources/assets/ironworks/textures/block/network_cable.png", (0x3a, 0xa8, 0xd8)),
+    ("src/main/resources/assets/ironworks/textures/block/storage_port.png", (0x6e, 0x4f, 0x9a)),
+    ("src/main/resources/assets/ironworks/textures/item/drive_1k.png", (0x9a, 0xc8, 0xe8)),
+    ("src/main/resources/assets/ironworks/textures/item/drive_4k.png", (0x4a, 0x9a, 0xd8)),
+    ("src/main/resources/assets/ironworks/textures/item/drive_16k.png", (0x1e, 0x5f, 0xa8)),
 ]
 
 # Patterned textures: (relative output path, 16x16 rows of RGB tuples).

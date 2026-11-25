@@ -13,6 +13,9 @@ import com.blackrikka.ironworks.machine.CombustionGeneratorBlock;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlock;
 import com.blackrikka.ironworks.machine.CrusherBlock;
 import com.blackrikka.ironworks.machine.ElectricFurnaceBlock;
+import com.blackrikka.ironworks.storage.NetworkCableBlock;
+import com.blackrikka.ironworks.storage.ServerRackBlock;
+import com.blackrikka.ironworks.storage.StoragePortBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -234,4 +237,29 @@ public class ModBlocks {
                     .strength(1.5F)
                     .sound(SoundType.METAL)
                     .noOcclusion()));
+
+    // M3a: server rack (drive slots, powered), network cable (data only), storage port (network entry).
+    public static final DeferredBlock<Block> SERVER_RACK = BLOCKS.register(
+            "server_rack",
+            () -> new ServerRackBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(3.5F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> NETWORK_CABLE = BLOCKS.register(
+            "network_cable",
+            () -> new NetworkCableBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .strength(1.0F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final DeferredBlock<Block> STORAGE_PORT = BLOCKS.register(
+            "storage_port",
+            () -> new StoragePortBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PURPLE)
+                    .strength(3.5F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)));
 }

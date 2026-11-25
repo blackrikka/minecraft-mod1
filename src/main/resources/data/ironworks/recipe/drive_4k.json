@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SPS",
+    "WAW",
+    "SRS"
+  ],
+  "key": {
+    "S": { "item": "ironworks:steel_plate" },
+    "P": { "item": "ironworks:plastic_sheet" },
+    "W": { "item": "ironworks:silicon_wafer" },
+    "A": { "item": "ironworks:advanced_circuit" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "id": "ironworks:drive_4k",
+    "count": 1
+  }
+}

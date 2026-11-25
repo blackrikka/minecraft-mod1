@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "ironworks:block/server_rack_top",
+    "front": "ironworks:block/server_rack_front_lit",
+    "side": "ironworks:block/server_rack_side"
+  }
+}

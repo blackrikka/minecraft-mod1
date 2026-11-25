@@ -15,6 +15,9 @@
     "ironworks:circuit_assembler",
     "ironworks:conveyor",
     "ironworks:splitter",
-    "ironworks:sorter"
+    "ironworks:sorter",
+    "ironworks:server_rack",
+    "ironworks:network_cable",
+    "ironworks:storage_port"
   ]
 }
