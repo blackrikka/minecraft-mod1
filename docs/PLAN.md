@@ -87,6 +87,17 @@ tools/gen_textures.py
 - **기계 레시피**: 분쇄기 `F F F / B C B / I R I`(F=flint, B=bronze_ingot, C=machine_casing, I=iron_ingot, R=redstone). 전기 용광로 `I I I / B C B / R F R`(F=minecraft:furnace, R=redstone).
 - 공통: 광물 가공 체인 전체 검증(분쇄→가루→용광로→주괴).
 
+### M1e – 합금·압축·회로 (확정)
+- 레시피 타입 추가(M1d 헬퍼 재사용): `ironworks:alloying`, `ironworks:compressing`, `ironworks:circuit_assembly`.
+- 기계(모두 `MachineBlockEntity` 파생, 공용 `MachineMenu` 재사용; 입력 슬롯 수 2/1/4):
+  - `alloy_furnace` 합금로: 입력 2, 30 FE/t. 레시피: 청동(구리 주괴 3 + 주석 주괴 1 → 청동 4, 100틱), 강철(철 주괴 1 + 석탄 1 → 강철 1, 200틱; 숯 버전 별도), 플라스틱(`rubber` 2 + 석탄 1 → `plastic_sheet` 2, 120틱; 숯 버전 별도).
+  - `compressor` 압축기: 입력 1, 30 FE/t, 100틱. 철/구리/강철 주괴 → `iron_plate`/`copper_plate`/`steel_plate`, 금 주괴 → `gold_foil` 2, `silicon` → `silicon_wafer`.
+  - `circuit_assembler` 회로 조립기: 입력 4, 40 FE/t. `basic_circuit` = plastic_sheet 1 + iron_plate 1 + gold_foil 2 + redstone 1 (200틱). `advanced_circuit` = basic_circuit 1 + silicon_wafer 2 + gold_foil 2 + redstone 1 (300틱, 50 FE/t).
+- 실리콘: `silicon_ore`, `deepslate_silicon_ore`(돌/심층암 대체, Y 0~64, 청크당 6회, 크기 6), 드롭 `silicon`(행운 적용, 실크터치 시 자기 자신), 분쇄기에서도 광석 → 실리콘 2(분쇄 레시피 추가).
+- 아이템: steel_ingot, iron_plate, copper_plate, steel_plate, gold_foil, plastic_sheet, silicon, silicon_wafer, basic_circuit, advanced_circuit.
+- 기계 제작: 합금로 `K K K / B C B / I F I`(K=minecraft:brick, B=bronze_ingot, C=machine_casing, I=iron_ingot, F=minecraft:furnace). 압축기 `I P I / B C B / I R I`(P=minecraft:piston, R=redstone). 회로 조립기 `G R G / S C S / I W I`(G=gold_ingot, S=steel_ingot, W=copper_cable).
+- 4입력 기계의 GUI: 슬롯 겹침이 없도록 좌표를 계산해 배치하고(2x2), 출력 슬롯과 진행 화살표 위치를 보고할 것.
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
