@@ -110,6 +110,19 @@ tools/gen_textures.py
 - **`sorter`** 필터: 우클릭(아이템 들고)으로 필터 아이템 지정, 맨손 웅크리기 우클릭으로 해제, 액션바에 현재 필터 표시. 필터와 일치(아이템 종류 비교)하면 앞으로, 불일치하면 좌/우로 전달. 레시피: `S P S / P C P / S P S`가 아니라 단순히 무형 컨베이어 1 + hopper 1 + redstone 1 → sorter 1.
 - 공통: 모든 컨베이어류는 곡괭이 mineable, 루트테이블(자기 자신), 크리에이티브 탭, lang(en_us/ko_kr), 임시 텍스처(gen_textures.py), blockstates(facing 4), models.
 
+### M3a 상세 – 드라이브·서버랙·네트워크 (확정)
+**목표**: 서버랙에 드라이브(저장장치)를 꽂아 "DB"로 쓴다. 이 단계는 저장 엔진과 네트워크(넣기/꺼내기 API, 포트, 케이블)까지이고, 검색·정렬 GUI(터미널)는 M3b.
+- **데이터 컴포넌트** `ironworks:drive_data` (`DriveData` record): 항목 리스트 `List<Entry(ItemStack template(count 1), long count)>`. Codec + StreamCodec, persistent + network 동기화. 컴포넌트는 `DeferredRegister.DataComponents` 로 등록. 드라이브 아이템 자체에 데이터가 남으므로 드라이브를 뽑아도 내용 유지.
+- **`DriveItem`**(스택 1개): 티어별 `drive_1k`(총 1,024개 · 종류 16), `drive_4k`(4,096 · 32), `drive_16k`(16,384 · 63). 툴팁: `사용 123 / 1,024 · 종류 3 / 16` + 상위 항목 몇 개. 용량 초과·종류 초과 시 삽입은 가능한 만큼만 수락. 컴포넌트 비교 기준: 같은 아이템 + 같은 컴포넌트(`ItemStack.isSameItemSameComponents`)를 같은 종류로 취급.
+- **저장 인터페이스** `storage/IStorageProvider` (서버랙 BE 구현): `long insert(ItemStack template, long count, boolean simulate)`(삽입된 양 반환), `long extract(ItemStack template, long count, boolean simulate)`(추출된 양 반환), `Map<ItemKey, Long> snapshot()`, `boolean isOnline()`. 삽입 우선순위: 같은 종류를 이미 가진 드라이브 → 빈 종류 칸이 있는 드라이브. `ItemKey`는 아이템+컴포넌트 기반 해시/동등성.
+- **`server_rack`** (`ServerRackBlock`+BE, facing + `online` 블록상태): 드라이브 슬롯 8개(`ItemStackHandler`, DriveItem 만 허용). 에너지 버퍼 5,000 FE(수신 128/틱, 외부 추출 불가), 소비 = 틱당 2 FE × 설치된 드라이브 수 + 1. 전력이 있으면 online, 없으면 offline(삽입·추출·스냅샷 모두 거부). GUI: 2×4 드라이브 슬롯 + 플레이어 인벤토리 + 에너지 바(공용 `MachineScreen` 스타일 재사용 또는 전용). 블록 제거 시 드라이브 드롭(데이터 유지).
+- **`network_cable`** (`NetworkCableBlock`, BE 없음): 6면 연결(구리 케이블과 같은 방식의 상태 프로퍼티·멀티파트 모델), 연결 대상은 다른 네트워크 케이블, `server_rack`, `storage_port`, (M3b) 터미널. 에너지 전송 없음(데이터 전용 케이블).
+- **`StorageNetwork`** 유틸: 시작 위치에서 케이블/노드를 BFS(최대 256 블록, 로드된 청크만)해 `IStorageProvider` 목록을 수집, 합산 `insert/extract/snapshot` 제공. 결과는 20틱 캐시(블록 변경 시 무효화 필요 없음, 단순 시간 캐시). 서버 측에서만 사용.
+- **`storage_port`** (`StoragePortBlock`+BE): 네트워크에 붙는 입구. `Capabilities.ItemHandler.BLOCK` 노출: 삽입 시 `StorageNetwork.insert`(전량 수락 못하면 남은 스택 반환), 추출 불가. 컨베이어/호퍼 → 포트 → 네트워크로 자동 입고. 인접한 케이블/랙을 통해 네트워크를 찾음(포트 자신도 네트워크 노드).
+- **레시피**(작업대): `drive_1k` = `S P S / P B P / S R S` (S=steel_plate, P=plastic_sheet, B=basic_circuit, R=redstone), `drive_4k` = `S P S / W A W / S R S` (W=silicon_wafer, A=advanced_circuit), `drive_16k` = `A W A / S D S / A W A` (D=minecraft:diamond), `server_rack` = `S B S / C K C / S R S`(C=machine_casing, K=ironworks:copper_cable, B=basic_circuit), `network_cable` = 무형 아님: `P P P / G G G / P P P` → 6개(P=plastic_sheet, G=gold_foil), `storage_port` = `S B S / H C H / S R S`(H=minecraft:hopper).
+- **디버그 명령** `/ironworks storage <x y z>`(OP 전용): 해당 위치에서 BFS 로 찾은 네트워크의 online 여부, 랙 수, 스냅샷(종류별 수량)을 채팅으로 출력. 검증에 사용.
+- 공통: lang(en_us/ko_kr), 임시 텍스처, blockstates/models, 루트테이블, mineable/pickaxe 태그, 크리에이티브 탭(드라이브 3 포함).
+
 ### M1 부속 – 광물·합금 (확정)
 - 광물(월드젠 JSON): **주석**(Y 0 이상 지표 위주), **실리콘/규석**(모래 지형). 구리·철·석탄은 바닐라 사용. 은·희토류는 M4 후보.
 - 합금: **청동** = 구리 3 + 주석 1, **강철** = 철 + 석탄. 스테인리스는 만들지 않는다(니켈도 제외).
