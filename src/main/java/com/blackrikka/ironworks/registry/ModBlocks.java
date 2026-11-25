@@ -16,6 +16,7 @@ import com.blackrikka.ironworks.machine.ElectricFurnaceBlock;
 import com.blackrikka.ironworks.storage.NetworkCableBlock;
 import com.blackrikka.ironworks.storage.ServerRackBlock;
 import com.blackrikka.ironworks.storage.StoragePortBlock;
+import com.blackrikka.ironworks.storage.terminal.DbTerminalBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -259,6 +260,15 @@ public class ModBlocks {
             "storage_port",
             () -> new StoragePortBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_PURPLE)
+                    .strength(3.5F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)));
+
+    // M3b-2: DB terminal (network node with a search GUI).
+    public static final DeferredBlock<Block> DB_TERMINAL = BLOCKS.register(
+            "db_terminal",
+            () -> new DbTerminalBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
                     .strength(3.5F, 6.0F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)));

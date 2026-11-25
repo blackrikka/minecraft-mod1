@@ -5,6 +5,7 @@ import com.blackrikka.ironworks.storage.query.QueryPage;
 import com.blackrikka.ironworks.storage.query.QueryRequest;
 import com.blackrikka.ironworks.storage.query.QueryService;
 import com.blackrikka.ironworks.storage.query.SortMode;
+import com.blackrikka.ironworks.storage.terminal.TerminalCommands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -38,6 +39,7 @@ import java.util.Map;
  *       (see {@code DbQuery}) and prints one line per kind on the page, then a summary. Pages start at 0.</li>
  *   <li>{@code /ironworks extract <x y z> <item> <amount>}: takes items out of the network and drops them above
  *       the given position.</li>
+ *   <li>{@code terminal ...}: DB terminal checks, see {@code TerminalCommands}.</li>
  * </ul>
  */
 @EventBusSubscriber(modid = Ironworks.MOD_ID)
@@ -71,7 +73,8 @@ public final class StorageCommands {
                                                         BlockPosArgument.getLoadedBlockPos(context, "pos"),
                                                         ItemArgument.getItem(context, "item")
                                                                 .createItemStack(1, false),
-                                                        IntegerArgumentType.getInteger(context, "amount"))))))));
+                                                        IntegerArgumentType.getInteger(context, "amount")))))))
+                .then(TerminalCommands.node(buildContext)));
     }
 
     private static int report(CommandSourceStack source, BlockPos pos) {

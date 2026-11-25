@@ -4,6 +4,7 @@ import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.machine.CombustionGeneratorMenu;
 import com.blackrikka.ironworks.machine.MachineMenu;
 import com.blackrikka.ironworks.storage.ServerRackMenu;
+import com.blackrikka.ironworks.storage.terminal.DbTerminalMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
@@ -51,4 +52,10 @@ public class ModMenus {
             MENUS.register("server_rack",
                     () -> IMenuTypeExtension.create((id, inventory, buf) -> ServerRackMenu.fromNetwork(
                             ModMenus.SERVER_RACK_MENU.get(), id, inventory, buf)));
+
+    // M3b-2: DB terminal search GUI (the menu has only player slots; results come by packet).
+    public static final DeferredHolder<MenuType<?>, MenuType<DbTerminalMenu>> DB_TERMINAL_MENU =
+            MENUS.register("db_terminal",
+                    () -> IMenuTypeExtension.create((id, inventory, buf) -> DbTerminalMenu.fromNetwork(
+                            ModMenus.DB_TERMINAL_MENU.get(), id, inventory, buf)));
 }

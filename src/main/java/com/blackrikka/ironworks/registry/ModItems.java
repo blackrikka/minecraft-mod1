@@ -74,6 +74,8 @@ public class ModItems {
     public static final DeferredItem<BlockItem> SERVER_RACK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.SERVER_RACK);
     public static final DeferredItem<BlockItem> NETWORK_CABLE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.NETWORK_CABLE);
     public static final DeferredItem<BlockItem> STORAGE_PORT_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.STORAGE_PORT);
+    // M3b-2: DB terminal.
+    public static final DeferredItem<BlockItem> DB_TERMINAL_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.DB_TERMINAL);
     public static final DeferredItem<DriveItem> DRIVE_1K = ITEMS.register("drive_1k",
             () -> new DriveItem(DriveItem.Tier.K1, new Item.Properties().stacksTo(1)));
     public static final DeferredItem<DriveItem> DRIVE_4K = ITEMS.register("drive_4k",

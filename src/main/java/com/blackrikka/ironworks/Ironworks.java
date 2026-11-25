@@ -1,5 +1,6 @@
 package com.blackrikka.ironworks;
 
+import com.blackrikka.ironworks.net.TerminalNetwork;
 import com.blackrikka.ironworks.registry.ModBlockEntities;
 import com.blackrikka.ironworks.registry.ModBlocks;
 import com.blackrikka.ironworks.registry.ModDataComponents;
@@ -30,6 +31,7 @@ public class Ironworks {
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         ModDataComponents.DATA_COMPONENTS.register(modEventBus);
         modEventBus.addListener(ModCapabilities::register);
+        modEventBus.addListener(TerminalNetwork::register);
 
         LOGGER.info("Ironworks loaded");
     }

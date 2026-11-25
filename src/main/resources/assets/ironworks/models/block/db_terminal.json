@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "ironworks:block/db_terminal_top",
+    "front": "ironworks:block/db_terminal_front",
+    "side": "ironworks:block/db_terminal_side"
+  }
+}

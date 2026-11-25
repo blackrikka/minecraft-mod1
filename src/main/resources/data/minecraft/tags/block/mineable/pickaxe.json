@@ -18,6 +18,7 @@
     "ironworks:sorter",
     "ironworks:server_rack",
     "ironworks:network_cable",
-    "ironworks:storage_port"
+    "ironworks:storage_port",
+    "ironworks:db_terminal"
   ]
 }

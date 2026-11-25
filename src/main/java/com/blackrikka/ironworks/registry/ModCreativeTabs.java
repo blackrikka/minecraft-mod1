@@ -65,6 +65,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SERVER_RACK_ITEM.get());
                         output.accept(ModItems.NETWORK_CABLE_ITEM.get());
                         output.accept(ModItems.STORAGE_PORT_ITEM.get());
+                        output.accept(ModItems.DB_TERMINAL_ITEM.get());
                         output.accept(ModItems.DRIVE_1K.get());
                         output.accept(ModItems.DRIVE_4K.get());
                         output.accept(ModItems.DRIVE_16K.get());

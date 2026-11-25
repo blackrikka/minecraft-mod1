@@ -95,6 +95,10 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/item/drive_1k.png", (0x9a, 0xc8, 0xe8)),
     ("src/main/resources/assets/ironworks/textures/item/drive_4k.png", (0x4a, 0x9a, 0xd8)),
     ("src/main/resources/assets/ironworks/textures/item/drive_16k.png", (0x1e, 0x5f, 0xa8)),
+    # M3b-2: DB terminal (front shows the screen colour, sides and top match the rack).
+    ("src/main/resources/assets/ironworks/textures/block/db_terminal_front.png", (0x2e, 0x8a, 0xb8)),
+    ("src/main/resources/assets/ironworks/textures/block/db_terminal_side.png", (0x4a, 0x52, 0x5c)),
+    ("src/main/resources/assets/ironworks/textures/block/db_terminal_top.png", (0x5c, 0x64, 0x6e)),
 ]
 
 # Patterned textures: (relative output path, 16x16 rows of RGB tuples).

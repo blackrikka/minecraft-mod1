@@ -1,5 +1,6 @@
 package com.blackrikka.ironworks.storage;
 
+import com.blackrikka.ironworks.storage.terminal.DbTerminalBlock;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -77,11 +78,12 @@ public class NetworkCableBlock extends Block {
         return state.getValue(PROPERTY_BY_DIRECTION.get(direction));
     }
 
-    /** True for the blocks a network cable connects to. */
+    /** True for the blocks a network cable connects to: cables, server racks, storage ports and DB terminals. */
     public static boolean isNetworkNode(BlockState state) {
         return state.getBlock() instanceof NetworkCableBlock
                 || state.getBlock() instanceof ServerRackBlock
-                || state.getBlock() instanceof StoragePortBlock;
+                || state.getBlock() instanceof StoragePortBlock
+                || state.getBlock() instanceof DbTerminalBlock;
     }
 
     @Override

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ironworks:block/db_terminal"
+    },
+    "facing=east": {
+      "model": "ironworks:block/db_terminal",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ironworks:block/db_terminal",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ironworks:block/db_terminal",
+      "y": 270
+    }
+  }
+}

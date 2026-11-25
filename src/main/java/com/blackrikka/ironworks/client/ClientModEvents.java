@@ -7,6 +7,7 @@ import com.blackrikka.ironworks.machine.MachineScreen;
 import com.blackrikka.ironworks.registry.ModBlockEntities;
 import com.blackrikka.ironworks.registry.ModMenus;
 import com.blackrikka.ironworks.storage.ServerRackScreen;
+import com.blackrikka.ironworks.storage.terminal.DbTerminalScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -27,6 +28,7 @@ public final class ClientModEvents {
         event.register(ModMenus.COMPRESSOR_MENU.get(), MachineScreen::new);
         event.register(ModMenus.CIRCUIT_ASSEMBLER_MENU.get(), MachineScreen::new);
         event.register(ModMenus.SERVER_RACK_MENU.get(), ServerRackScreen::new);
+        event.register(ModMenus.DB_TERMINAL_MENU.get(), DbTerminalScreen::new);
     }
 
     @SubscribeEvent
