@@ -45,6 +45,14 @@ tools/gen_textures.py
 - 가공 체인: 광석 → 분쇄기(가루 x2) → 용광로(주괴) → 합금로/압축기(판).
 - 드라이브 재료: 실리콘 웨이퍼 + 강철 케이스 + 구리선(회로).
 
+### M1a – 고무나무 (확정)
+- 독자 블록: `rubber_log`(`axis` + `sap` 불리언 상태), `rubber_planks`, `rubber_leaves`, `rubber_sapling`. 바닐라 원목은 쓰지 않는다.
+- 수액: `sap=true`인 원목을 우클릭하면 `rubber_sap` 1개를 주고 `sap=false`로 바뀐다. `sap=false`인 원목은 랜덤 틱으로 확률 재생(기계 추출기는 M2 이후).
+- 고무: `rubber_sap`을 바닐라 화로에 구우면 `rubber`(수작업 단계). 이후 가공기로 플라스틱 → 기초 회로로 이어진다.
+- 월드젠: JSON(`configured_feature` → `placed_feature` → `neoforge:add_features` 바이옴 모디파이어, 숲 계열). 묘목은 `TreeGrower`로 같은 나무를 키운다.
+- 태그: `minecraft:logs`, `logs_that_burn`, `planks`, `leaves`, `saplings`, `mineable/axe`, `mineable/hoe`(잎) 에 등록, 자체 태그 `ironworks:rubber_logs`.
+- 재료 체인: 고무 → 플라스틱(고무 + 석탄) → 기초 회로(플라스틱 + 철 + 금 + 레드스톤) → 고급 회로(+실리콘).
+
 ### M2 – 컨베이어(공장 자동화)
 - `ConveyorBlock`(FACING 프로퍼티, 위의 `ItemEntity`/플레이어 이동), 아이템 이동은 엔티티 push 대신 **BE 내부 1슬롯 버퍼**: 버퍼 아이템을 앞 칸 `Capabilities.ItemHandler.BLOCK`에 넘김, 없으면 앞 컨베이어로 인계(진행도 0~1 렌더링).
 - 기계 입출력: 기계의 `IItemHandler`를 컨베이어가 삽입/추출. 분배기(Splitter: 좌/우/직진 순환), 필터(아이템 지정).
