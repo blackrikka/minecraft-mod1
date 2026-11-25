@@ -2,6 +2,7 @@ package com.blackrikka.ironworks.client;
 
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.machine.CombustionGeneratorScreen;
+import com.blackrikka.ironworks.machine.MachineScreen;
 import com.blackrikka.ironworks.registry.ModMenus;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,5 +17,7 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenus.COMBUSTION_GENERATOR_MENU.get(), CombustionGeneratorScreen::new);
+        event.register(ModMenus.CRUSHER_MENU.get(), MachineScreen::new);
+        event.register(ModMenus.ELECTRIC_FURNACE_MENU.get(), MachineScreen::new);
     }
 }

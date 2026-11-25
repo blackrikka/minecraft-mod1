@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "group": "ingot",
+  "ingredient": {
+    "item": "ironworks:tin_dust"
+  },
+  "result": {
+    "id": "ironworks:tin_ingot"
+  }
+}

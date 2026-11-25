@@ -5,6 +5,8 @@ import com.blackrikka.ironworks.block.RubberLogBlock;
 import com.blackrikka.ironworks.energy.CableBlock;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlock;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlock;
+import com.blackrikka.ironworks.machine.CrusherBlock;
+import com.blackrikka.ironworks.machine.ElectricFurnaceBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -111,4 +113,49 @@ public class ModBlocks {
                     .strength(1.0F)
                     .sound(SoundType.METAL)
                     .noOcclusion()));
+
+    // M1d: tin ore (overworld and deepslate variants).
+    public static final DeferredBlock<Block> TIN_ORE = BLOCKS.registerSimpleBlock(
+            "tin_ore",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.0F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE));
+
+    public static final DeferredBlock<Block> DEEPSLATE_TIN_ORE = BLOCKS.registerSimpleBlock(
+            "deepslate_tin_ore",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.DEEPSLATE)
+                    .strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE));
+
+    // M1d: machine casing, the base of every machine recipe.
+    public static final DeferredBlock<Block> MACHINE_CASING = BLOCKS.registerSimpleBlock(
+            "machine_casing",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(3.5F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL));
+
+    // M1d: crusher (ore -> dust) and electric furnace (FE smelting). lit = light level 13 while working.
+    public static final DeferredBlock<Block> CRUSHER = BLOCKS.register(
+            "crusher",
+            () -> new CrusherBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)
+                    .lightLevel(state -> state.getValue(CrusherBlock.LIT) ? 13 : 0)));
+
+    public static final DeferredBlock<Block> ELECTRIC_FURNACE = BLOCKS.register(
+            "electric_furnace",
+            () -> new ElectricFurnaceBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)
+                    .lightLevel(state -> state.getValue(ElectricFurnaceBlock.LIT) ? 13 : 0)));
 }

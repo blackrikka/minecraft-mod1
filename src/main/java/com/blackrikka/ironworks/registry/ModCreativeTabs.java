@@ -27,6 +27,18 @@ public class ModCreativeTabs {
                         output.accept(ModItems.COMBUSTION_GENERATOR_ITEM.get());
                         output.accept(ModItems.CREATIVE_BATTERY_ITEM.get());
                         output.accept(ModItems.COPPER_CABLE_ITEM.get());
+                        output.accept(ModItems.TIN_ORE_ITEM.get());
+                        output.accept(ModItems.DEEPSLATE_TIN_ORE_ITEM.get());
+                        output.accept(ModItems.RAW_TIN.get());
+                        output.accept(ModItems.TIN_INGOT.get());
+                        output.accept(ModItems.IRON_DUST.get());
+                        output.accept(ModItems.COPPER_DUST.get());
+                        output.accept(ModItems.GOLD_DUST.get());
+                        output.accept(ModItems.TIN_DUST.get());
+                        output.accept(ModItems.BRONZE_INGOT.get());
+                        output.accept(ModItems.MACHINE_CASING_ITEM.get());
+                        output.accept(ModItems.CRUSHER_ITEM.get());
+                        output.accept(ModItems.ELECTRIC_FURNACE_ITEM.get());
                     })
                     .build()
     );

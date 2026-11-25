@@ -1,0 +1,17 @@
+{
+  "type": "ironworks:crushing",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:raw_gold"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "ironworks:gold_dust",
+    "count": 2
+  },
+  "time": 100,
+  "energy_per_tick": 20
+}

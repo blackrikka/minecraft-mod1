@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "ironworks:combustion_generator"
+    "ironworks:combustion_generator",
+    "ironworks:tin_ore",
+    "ironworks:deepslate_tin_ore",
+    "ironworks:machine_casing",
+    "ironworks:crusher",
+    "ironworks:electric_furnace"
   ]
 }

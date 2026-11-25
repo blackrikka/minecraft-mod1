@@ -29,6 +29,25 @@ TEXTURES = [
     ("src/main/resources/assets/ironworks/textures/block/creative_battery.png", (0x7a, 0x2f, 0xb0)),
     # M1c: copper cable.
     ("src/main/resources/assets/ironworks/textures/block/copper_cable.png", (0xb8, 0x73, 0x33)),
+    # M1d: tin ore, machine casing, crusher, electric furnace, and processed materials.
+    ("src/main/resources/assets/ironworks/textures/block/tin_ore.png", (0x8f, 0x96, 0x9c)),
+    ("src/main/resources/assets/ironworks/textures/block/deepslate_tin_ore.png", (0x5a, 0x60, 0x66)),
+    ("src/main/resources/assets/ironworks/textures/block/machine_casing.png", (0x7d, 0x86, 0x8c)),
+    ("src/main/resources/assets/ironworks/textures/block/crusher_front.png", (0x4d, 0x53, 0x58)),
+    ("src/main/resources/assets/ironworks/textures/block/crusher_front_lit.png", (0xd0, 0x8c, 0x2a)),
+    ("src/main/resources/assets/ironworks/textures/block/crusher_side.png", (0x6a, 0x72, 0x78)),
+    ("src/main/resources/assets/ironworks/textures/block/crusher_top.png", (0x8a, 0x92, 0x98)),
+    ("src/main/resources/assets/ironworks/textures/block/electric_furnace_front.png", (0x3c, 0x3c, 0x3c)),
+    ("src/main/resources/assets/ironworks/textures/block/electric_furnace_front_lit.png", (0xe0, 0x4a, 0x1a)),
+    ("src/main/resources/assets/ironworks/textures/block/electric_furnace_side.png", (0x55, 0x55, 0x55)),
+    ("src/main/resources/assets/ironworks/textures/block/electric_furnace_top.png", (0x6e, 0x6e, 0x6e)),
+    ("src/main/resources/assets/ironworks/textures/item/raw_tin.png", (0xc2, 0xa0, 0x84)),
+    ("src/main/resources/assets/ironworks/textures/item/tin_ingot.png", (0xc9, 0xd1, 0xd6)),
+    ("src/main/resources/assets/ironworks/textures/item/tin_dust.png", (0xb4, 0xbc, 0xc2)),
+    ("src/main/resources/assets/ironworks/textures/item/iron_dust.png", (0xa8, 0xa8, 0xa8)),
+    ("src/main/resources/assets/ironworks/textures/item/copper_dust.png", (0xd0, 0x7a, 0x4a)),
+    ("src/main/resources/assets/ironworks/textures/item/gold_dust.png", (0xe6, 0xc2, 0x3c)),
+    ("src/main/resources/assets/ironworks/textures/item/bronze_ingot.png", (0xb0, 0x7a, 0x3a)),
 ]
 
 

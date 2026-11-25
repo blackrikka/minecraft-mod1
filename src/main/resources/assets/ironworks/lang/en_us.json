@@ -12,5 +12,17 @@
   "message.ironworks.creative_battery.total": "Total received: %s FE",
   "itemGroup.ironworks": "Ironworks",
   "block.ironworks.copper_cable": "Copper Cable",
-  "message.ironworks.copper_cable.buffer": "Cable buffer: %s"
+  "message.ironworks.copper_cable.buffer": "Cable buffer: %s",
+  "block.ironworks.tin_ore": "Tin Ore",
+  "block.ironworks.deepslate_tin_ore": "Deepslate Tin Ore",
+  "item.ironworks.raw_tin": "Raw Tin",
+  "item.ironworks.tin_ingot": "Tin Ingot",
+  "item.ironworks.iron_dust": "Iron Dust",
+  "item.ironworks.copper_dust": "Copper Dust",
+  "item.ironworks.gold_dust": "Gold Dust",
+  "item.ironworks.tin_dust": "Tin Dust",
+  "item.ironworks.bronze_ingot": "Bronze Ingot",
+  "block.ironworks.machine_casing": "Machine Casing",
+  "block.ironworks.crusher": "Crusher",
+  "block.ironworks.electric_furnace": "Electric Furnace"
 }

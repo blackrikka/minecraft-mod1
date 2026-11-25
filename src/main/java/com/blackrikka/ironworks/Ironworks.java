@@ -6,6 +6,8 @@ import com.blackrikka.ironworks.registry.ModCapabilities;
 import com.blackrikka.ironworks.registry.ModCreativeTabs;
 import com.blackrikka.ironworks.registry.ModItems;
 import com.blackrikka.ironworks.registry.ModMenus;
+import com.blackrikka.ironworks.registry.ModRecipeSerializers;
+import com.blackrikka.ironworks.registry.ModRecipeTypes;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -23,6 +25,8 @@ public class Ironworks {
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         ModMenus.MENUS.register(modEventBus);
+        ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         modEventBus.addListener(ModCapabilities::register);
 
         LOGGER.info("Ironworks loaded");

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "group": "ingot",
+  "ingredient": {
+    "item": "ironworks:raw_tin"
+  },
+  "result": {
+    "id": "ironworks:tin_ingot"
+  }
+}

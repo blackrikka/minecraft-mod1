@@ -3,7 +3,9 @@ package com.blackrikka.ironworks.registry;
 import com.blackrikka.ironworks.Ironworks;
 import com.blackrikka.ironworks.energy.CableBlockEntity;
 import com.blackrikka.ironworks.machine.CombustionGeneratorBlockEntity;
+import com.blackrikka.ironworks.machine.CrusherBlockEntity;
 import com.blackrikka.ironworks.machine.CreativeBatteryBlockEntity;
+import com.blackrikka.ironworks.machine.ElectricFurnaceBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -30,4 +32,16 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("copper_cable",
                     () -> BlockEntityType.Builder.of(CableBlockEntity::new,
                             ModBlocks.COPPER_CABLE.get()).build(null));
+
+    // M1d: crusher.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrusherBlockEntity>> CRUSHER =
+            BLOCK_ENTITY_TYPES.register("crusher",
+                    () -> BlockEntityType.Builder.of(CrusherBlockEntity::new,
+                            ModBlocks.CRUSHER.get()).build(null));
+
+    // M1d: electric furnace.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ElectricFurnaceBlockEntity>> ELECTRIC_FURNACE =
+            BLOCK_ENTITY_TYPES.register("electric_furnace",
+                    () -> BlockEntityType.Builder.of(ElectricFurnaceBlockEntity::new,
+                            ModBlocks.ELECTRIC_FURNACE.get()).build(null));
 }

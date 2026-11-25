@@ -27,5 +27,20 @@ public class ModCapabilities {
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
                 ModBlockEntities.COPPER_CABLE.get(),
                 (be, side) -> be.getExternalEnergy());
+
+        // M1d: machines accept FE (receive-only buffer) and expose inputs for insertion, output for extraction.
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.CRUSHER.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CRUSHER.get(),
+                (be, side) -> be.getItemView());
+
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.ELECTRIC_FURNACE.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.ELECTRIC_FURNACE.get(),
+                (be, side) -> be.getItemView());
     }
 }
